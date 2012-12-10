@@ -1,15 +1,19 @@
 package me.deathjockey.tod.level;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import me.deathjockey.tod.InputHandler;
 import me.deathjockey.tod.TowerComponent;
 import me.deathjockey.tod.screen.Art;
 import me.deathjockey.tod.screen.Bitmap;
 import me.deathjockey.tod.screen.Screen;
+import me.deathjockey.tod.sound.Sound;
 
 public class Player extends Entity {
 
 	private static final int DIRECTION_UP = 0, DIRECTION_DOWN = 1, DIRECTION_LEFT = 2, DIRECTION_RIGHT = 3;
-	
+	private Map<String, Integer> status = new HashMap<String, Integer>();
 	private int dir = DIRECTION_UP, frame = 0;
 	private long lastMove = System.currentTimeMillis(), frameTick = System.currentTimeMillis();
 	private short moveint = 100;
@@ -24,16 +28,31 @@ public class Player extends Entity {
 	private InputHandler input;
 	private TowerComponent game;
 	public Level level;
-	public int lv = 1;
-
-	public int yellowKey = 0, blueKey = 0, redKey = 0;
 	
 	public Player(InputHandler input, TowerComponent game, Level level) {
-		super("Player", "", 1000, 10, 10, 0, 0);
+		super("Player", "", 1, 10, 10, 0, 0);
+		put("stat.hp", 1000);
+		put("stat.level", 1);
+		put("stat.attack", 10);
+		put("stat.defense", 10);
+		put("stat.exp", 0);
+		put("stat.gold", 0);
+		put("key.yellow", 0);
+		put("key.blue", 0);
+		put("key.red", 0);
+		put("key.green", 0);
 		this.game = game;
 		this.input = input;
 		this.level = level;
 		hostile = false;
+	}
+	
+	public void put(String key, int value) {
+		status.put(key, value);
+	}
+	
+	public int get(String key) {
+		return status.get(key);
 	}
 	
 	public void tick() {
@@ -70,6 +89,7 @@ public class Player extends Entity {
 				x -= amount;
 				frame = 1;
 				frameTick = System.currentTimeMillis();
+				Sound.walk.play();
 			}
 		}
 		if(dir == DIRECTION_RIGHT) {
@@ -78,6 +98,7 @@ public class Player extends Entity {
 				x += amount;
 				frame = 1;
 				frameTick = System.currentTimeMillis();
+				Sound.walk.play();
 			}
 		}
 		if(dir == DIRECTION_UP) {
@@ -86,6 +107,7 @@ public class Player extends Entity {
 				y -= amount;
 				frame = 1;
 				frameTick = System.currentTimeMillis();
+				Sound.walk.play();
 			}
 		}
 		if(dir == DIRECTION_DOWN) {
@@ -94,15 +116,21 @@ public class Player extends Entity {
 				y += amount;
 				frame = 1;
 				frameTick = System.currentTimeMillis();
+				Sound.walk.play();
 			}
 		}
 		
 		Entity facing = level.getEntityAt(intent, x, y);
 		if(facing != null && facing.hostile) {
 			move(invertDir(intent), 1);
+			facing.interact(this);
 		} 
 		if(facing instanceof Stairs) {
 			((Stairs) facing).use();
+		}
+		if(facing instanceof Door || facing instanceof Item) {
+			(facing).interact(this);
+			move(invertDir(intent), 1);
 		}
 		lastMove += moveint;
 	}

@@ -1,0 +1,27 @@
+<items>
+	<item key="YellowKey" sprite="4,4" name="Yellow Key" give="key.yellow:1" />
+	<item key="BlueKey" sprite="5,4" name="Blue Key" give="key.blue:1" />
+	<item key="RedKey" sprite="6,4" name="Red Key" give="key.red:1" />
+	<item key="GreenKey" sprite="7,4" name="Green Key" give="key.green:1" />
+	<item key="MasterKey" sprite="3,6" name="Master Key" give="key.yellow:1,key.blue:1,key.red:1" />
+	
+	<item key="HealthPotion" sprite="11,5" name="Health Potion" give="stat.hp:250" />
+	<item key="RestorationPotion" sprite="12,5" name="Restoration Potion" give="stat.hp:520" />
+	
+	<item key="ShortSword" sprite="0,8" name="Short Sword" give="stat.attack:10" />
+	<item key="SilverSword" sprite="1,8" name="Silver Sword" give="stat.attack:30" />
+	<item key="PaladinSword" sprite="2,8" name="Paladin Sword" give="stat.attack:55" />
+	<item key="EmeraldSword" sprite="3,8" name="Emerald Sword" give="stat.attack:75" />
+	<item key="JockeyBlade" sprite="0,9" name="Blade of DeathJockey" give="stat.attack:100" />
+	
+	<item key="SmallShield" sprite="0,10" name="Small Shield" give="stat.defense:10" />
+	<item key="SilverShield" sprite="1,10" name="Silver Shield" give="stat.defense:30" />
+	<item key="PaladinShield" sprite="2,10" name="Paladin Shield" give="stat.defense:55" />
+	<item key="GemShield" sprite="3,10" name="Gem Shield" give="stat.defense:75" />
+	<item key="CrystallineShield" sprite="0,11" name="Crystalline Shield" give="stat.defense:100" />
+	
+	<item key="AttackGem" sprite="11,4" name="Attack Gem" give="stat.attack:2" />
+	<item key="DefenseGem" sprite="12,4" name="Defense Gem" give="stat.defense:2" />
+	<item key="GreatAttackGem" sprite="13,4" name="Great Attack Gem" give="stat.attack:4" />
+	<item key="GreatDefenseGem" sprite="14,4" name="Great Defense Gem" give="stat.defense:4" />
+</items>

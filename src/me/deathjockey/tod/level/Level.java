@@ -32,6 +32,7 @@ public class Level {
 		
 		for(Entity e : entities) {
 			e.render(screen);
+			
 		}
 	}
 	
@@ -58,20 +59,6 @@ public class Level {
 
 	public Entity getEntityAt(int dir, int x, int y) {
 		for(Entity e : entities) {
-//			switch(dir) {
-//			case 0:
-//				if(e.x == x && e.y == y - 1) return e;
-//				break;
-//			case 1:
-//				if(e.x == x && e.y == y + 1) return e;
-//				break;
-//			case 2:
-//				if(e.x == x - 1 && e.y == y) return e;
-//				break;
-//			case 3:
-//				if(e.x == x + 1 && e.y == y) return e;
-//				break;
-//			}
 			if(e.x == x && e.y == y) return e;
 		}
 		return null;

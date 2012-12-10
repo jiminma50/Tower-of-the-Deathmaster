@@ -5,7 +5,7 @@ public class Font {
 	public static String letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ    " + "0123456789-.!?/%$\\=*+,;:()&#\"' ";
 
     public static int getStringWidth(String s) {
-        return s.length() * 14;
+        return s.length() * 12;
     }
 
     private Font() {
@@ -18,7 +18,7 @@ public class Font {
             int c = letters.indexOf(msg.charAt(i));
             if (c < 0) continue;
             screen.render(Art.font[c % 30][c / 30], x, y);
-            x += 14;
+            x += 12;
         }
     }
 	

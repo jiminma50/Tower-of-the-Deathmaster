@@ -3,6 +3,9 @@ package me.deathjockey.tod;
 import java.awt.Canvas;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 import java.awt.image.BufferStrategy;
 
 import javax.swing.JFrame;
@@ -10,11 +13,13 @@ import javax.swing.JFrame;
 import me.deathjockey.tod.dy.DynamicsLoader;
 import me.deathjockey.tod.level.Level;
 import me.deathjockey.tod.level.Player;
+import me.deathjockey.tod.level.Tile;
+import me.deathjockey.tod.screen.Font;
 import me.deathjockey.tod.screen.Screen;
 import me.deathjockey.tod.screen.UI;
 import me.deathjockey.tod.sound.AudioPlayer;
 
-public class TowerComponent extends Canvas implements Runnable {
+public class TowerComponent extends Canvas implements Runnable, MouseListener, MouseMotionListener {
 
 	private static final long serialVersionUID = 1L;
 	public static final int WIDTH = 640, HEIGHT = 480;
@@ -108,6 +113,9 @@ public class TowerComponent extends Canvas implements Runnable {
 		UI.render(screen);
 		level.render(screen);
 		
+		Font.draw(screen, hx + "," + hy, 10, 10);
+		Font.draw(screen, "X", hx * Tile.SIZE + Level.X_OFFSET + (Tile.SIZE / 2 - 7) , Level.Y_OFFSET + hy * Tile.SIZE + (Tile.SIZE / 2 - 7));
+		
 		g.drawImage(screen.image, 0, 0, WIDTH, HEIGHT, null);
 		g.dispose();
 		bs.show();
@@ -121,6 +129,9 @@ public class TowerComponent extends Canvas implements Runnable {
 	Level level;
 
 	private void init() {
+		addMouseListener(this);
+		addMouseMotionListener(this);
+		
 		screen  = new Screen(WIDTH, HEIGHT);
 		input = new InputHandler(this);
 		DynamicsLoader.init(this, input);
@@ -146,5 +157,35 @@ public class TowerComponent extends Canvas implements Runnable {
 		frame.setVisible(true);
 		
 		game.start();
+	}
+	
+	int hx = 0, hy = 0;
+
+	@Override
+	public void mouseClicked(MouseEvent e) {}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {}
+
+	@Override
+	public void mouseExited(MouseEvent e) {}
+
+	@Override
+	public void mousePressed(MouseEvent e) {}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {}
+
+	@Override
+	public void mouseDragged(MouseEvent e) {}
+
+	@Override
+	public void mouseMoved(MouseEvent e) {
+		int mx = e.getX();
+		int my = e.getY();
+		if(mx > Level.X_OFFSET && my > Level.Y_OFFSET && mx < Level.X_OFFSET + 12 * Tile.SIZE && my < Level.Y_OFFSET + 13 * Tile.SIZE) {
+			hx = (mx - Level.X_OFFSET) / Tile.SIZE;
+			hy = (my - Level.Y_OFFSET) / Tile.SIZE;
+		}
 	}
 }

@@ -3,6 +3,7 @@ package me.deathjockey.tod.level;
 import me.deathjockey.tod.TowerComponent;
 import me.deathjockey.tod.screen.Art;
 import me.deathjockey.tod.screen.Bitmap;
+import me.deathjockey.tod.sound.Sound;
 
 public class Stairs extends Entity {
 
@@ -29,6 +30,7 @@ public class Stairs extends Entity {
 			game.downFloor(tx, ty);
 			break;
 		}
+		Sound.stairs.play();
 	}
 	
 }

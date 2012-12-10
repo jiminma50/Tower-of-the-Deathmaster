@@ -2,8 +2,6 @@ package me.deathjockey.tod.dy;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.URISyntaxException;
-import java.net.URL;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -14,19 +12,15 @@ import org.xml.sax.SAXException;
 
 public class XMLFile {
 
-	private URL url;
+	private String loc;
 	private File phys_f;
 	
 	private Document xmlDoc;
 	
-	public XMLFile(URL url) {
-		this.url = url;
+	public XMLFile(String loc) {
+		this.loc = loc;
+		phys_f = new File(System.getProperty("user.dir") + System.getProperty("file.separator") + "out" + loc);
 		
-		try {
-			phys_f = new File(url.toURI());
-		} catch (URISyntaxException e1) {
-			e1.printStackTrace();
-		}
 		try {
 			init();
 		} catch (SAXException e) {
@@ -45,8 +39,8 @@ public class XMLFile {
 		xmlDoc = docBuilder.parse(phys_f);
 	}
 
-	public URL getPath() {
-		return url;
+	public String getPath() {
+		return loc;
 	}
 	
 	public File getFile() {

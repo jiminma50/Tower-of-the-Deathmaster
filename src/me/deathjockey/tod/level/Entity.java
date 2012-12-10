@@ -11,7 +11,7 @@ public class Entity implements Cloneable {
 	
 	public static Map<String, Entity> entities = new HashMap<String, Entity>();
 	
-	protected int x, y, w = 32, h = 32;
+	public int x, y, w = 32, h = 32;
 	public int hp, attack, defense, exp, gold;
 	public String name, frame;
 	protected Bitmap[] frames;
@@ -52,6 +52,7 @@ public class Entity implements Cloneable {
 	}
 	
 	public void tick() {
+		if(System.currentTimeMillis() - ft > 2 * fi) ft = System.currentTimeMillis();
 		if(System.currentTimeMillis() - ft > fi && frames != null)  {
 			if(fr >= frames.length - 1) fr = 0;
 			else fr++;
@@ -66,6 +67,12 @@ public class Entity implements Cloneable {
 			e.printStackTrace();
 		}
 		return null;
+	}
+
+	public void interact(Player player) {
+		player.put("stat.gold", player.get("stat.gold") + gold);
+		player.put("stat.exp", player.get("stat.exp") + exp);
+		remove();
 	}
 	
 }

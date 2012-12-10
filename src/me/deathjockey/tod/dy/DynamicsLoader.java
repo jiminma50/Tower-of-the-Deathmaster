@@ -10,7 +10,9 @@ import javax.imageio.ImageIO;
 
 import me.deathjockey.tod.InputHandler;
 import me.deathjockey.tod.TowerComponent;
+import me.deathjockey.tod.level.Door;
 import me.deathjockey.tod.level.Entity;
+import me.deathjockey.tod.level.Item;
 import me.deathjockey.tod.level.Level;
 import me.deathjockey.tod.level.Player;
 import me.deathjockey.tod.level.Stairs;
@@ -25,17 +27,25 @@ public class DynamicsLoader {
 
 	public static void init(TowerComponent game, InputHandler input) {
 		loadTiles();
+		loadItems();
 		loadEntities();
 		loadLevels(game, input);
-		loadSounds();
 	}
 
-	private static void loadSounds() {
-
+	private static void loadItems() {
+		XMLFile itemDescrip = new XMLFile("/items.xml");
+		Document doc = itemDescrip.asDocument();
+		NodeList itemNode = ((Element)doc.getElementsByTagName("items").item(0)).getElementsByTagName("item");
+		for(int i = 0; i < itemNode.getLength(); i++) {
+			Element e = (Element) itemNode.item(i);
+			Item item = new Item(e.getAttribute("name"), e.getAttribute("sprite"), e.getAttribute("give"));
+			Item.items.put(e.getAttribute("key"), item);
+			
+		}
 	}
 
 	private static void loadLevels(TowerComponent game, InputHandler input) {
-		XMLFile levelDescrip = new XMLFile(TowerComponent.class.getResource("/level.xml"));
+		XMLFile levelDescrip = new XMLFile("/level.xml");
 		Document doc = levelDescrip.asDocument();
 		//Pixels
 		NodeList pxlDefine = ((Element) ((Element) doc.getElementsByTagName("levels").item(0)).getElementsByTagName("define").item(0)).getElementsByTagName("pixel");
@@ -98,6 +108,14 @@ public class DynamicsLoader {
 		for(int i = 0; i < xmlLevels.getLength(); i++) {
 			Element e = (Element) xmlLevels.item(i);
 			int floor = Integer.parseInt(e.getAttribute("floor"));
+			NodeList items = e.getElementsByTagName("item");
+			for(int j = 0; j < items.getLength(); j++) {
+				Element ee = (Element) items.item(j);
+				String type = ee.getAttribute("type");
+				Item item = Item.newInstance(type);
+				item.setPos(Integer.parseInt(ee.getAttribute("x")), Integer.parseInt(ee.getAttribute("y")));
+				lvs[floor - 1].addEntity(item);
+			}
 			NodeList entities = e.getElementsByTagName("entity");
 			for(int j = 0; j < entities.getLength(); j++) {
 				
@@ -115,11 +133,18 @@ public class DynamicsLoader {
 					lvs[floor - 1].addEntity(stairs);
 					continue;
 				}
+				if(type.equalsIgnoreCase("Door")) {
+					Door door = new Door(Integer.parseInt(ee.getAttribute("color")));
+					door.setPos(Integer.parseInt(ee.getAttribute("x")), Integer.parseInt(ee.getAttribute("y")));
+					lvs[floor - 1].addEntity(door);
+					continue;
+				}
 				Entity ts = Entity.newInstance(type);
 				
 				ts.setPos(Integer.parseInt(ee.getAttribute("x")), Integer.parseInt(ee.getAttribute("y")));
 				lvs[floor - 1].addEntity(ts);
 			}
+			
 		}
 		for(int i = 0; i < lvs.length; i++) {
 			Level.levels.put(lvs[i].floor, lvs[i]);
@@ -128,7 +153,7 @@ public class DynamicsLoader {
 	}
 
 	private static void loadEntities() {
-		XMLFile edyn = new XMLFile(TowerComponent.class.getResource("/entities.xml"));
+		XMLFile edyn = new XMLFile("/entities.xml");
 		Document doc = edyn.asDocument();
 		NodeList entities = doc.getElementsByTagName("entities");
 		NodeList entityReg = ((Element) entities.item(0)).getElementsByTagName("entity");
@@ -144,7 +169,7 @@ public class DynamicsLoader {
 	}
 
 	private static void loadTiles() {
-		XMLFile tdyn = new XMLFile(TowerComponent.class.getResource("/tiles.xml"));
+		XMLFile tdyn = new XMLFile("/tiles.xml");
 		Document doc = tdyn.asDocument();
 		NodeList tileNodes = doc.getElementsByTagName("tiles");
 		for(int i = 0; i < tileNodes.getLength(); i++) {

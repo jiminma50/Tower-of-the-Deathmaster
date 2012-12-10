@@ -8,24 +8,58 @@
 		<pixel rgb="102,45,145" bind="5" />
 	</define>
 	<level floor="1">
-<!-- 		<entity type="GreenSlime" x="5" y="0" /> -->
-<!-- 		<entity type="RedSlime" x="4" y="0" /> -->
-<!-- 		<entity type="GreenSlime" x="3" y="0" /> -->
+		<entity type="StairsUp" x="5" y="5" tx="6" ty="5" />
 		
-		<entity type="StairsUp" x="5" y="5" tx="5" ty="6" />
-		<entity type="StairsUp" x="6" y="5" tx="6" ty="6" />
+		<item type="MasterKey" x="4" y="9" />
+		
+		<entity type="Door" color="2" x="6" y="6" />
 		
 		<entity type="Player" x="5" y="12" />
+		
 	</level>
 	
 	<level floor="2">	
-		<entity type="StairsDown" x="5" y="5" tx="5" ty="6" />
-		<entity type="StairsDown" x="6" y="5" tx="6" ty="6" />
+		<entity type="StairsDown" x="5" y="5" tx="6" ty="5" />
 		<entity type="StairsUp" x="11" y="9" tx="10" ty="9" />
-		
-		<entity type="GreenSlime" x="9" y="9" />
-		<entity type="RedSlime" x="8" y="9" />
+		<item type="AttackGem" x="9" y="11" />
+		<item type="YellowKey" x="11" y="6" />
+		<item type="YellowKey" x="10" y="6" />
+		<item type="YellowKey" x="3" y="4" />
+		<item type="HealthPotion" x="2" y="4" />
+		<item type="HealthPotion" x="1" y="4" />
+		<item type="HealthPotion" x="10" y="11" />
+		<item type="RestorationPotion" x="11" y="7" />
+		<item type="ShortSword" x="4" y="1" />
+		<item type="SmallShield" x="2" y="8" />
+		<item type="DefenseGem" x="8" y="0" />
+		<item type="DefenseGem" x="7" y="0" />
+		<item type="RestorationPotion" x="7" y="1" />
+		<item type="RestorationPotion" x="8" y="1" />
+		<item type="AttackGem" x="8" y="2" />
+		<item type="AttackGem" x="7" y="2" />
+		<entity type="Skeleton" x="0" y="3" />
+		<entity type="WarriorSkeleton" x="1" y="1" />
+		<entity type="GemGolem" x="2" y="11" />
+		<entity type="GemGolem" x="10" y="4" />
+		<entity type="LargeBat" x="8" y="11" />
+		<entity type="Undead" x="3" y="11" />
+		<entity type="BlackSlime" x="5" y="11" />
+		<entity type="BlackSlime" x="6" y="11" />
+		<entity type="SmallBat" x="3" y="5" />
+		<entity type="SmallBat" x="2" y="6" />
 		<entity type="GreenSlime" x="7" y="9" />
+		<entity type="RedSlime" x="8" y="9" />
+		<entity type="GreenSlime" x="9" y="9" />
+		<entity type="ApprenticeWizard" x="3" y="6" />
+		<entity type="BlackSlime" x="8" y="6" /> 
+		<entity type="WarriorSkeleton" x="10" y="1" />
+		<entity type="Door" color="1" x="8" y="10" />
+		<entity type="Door" color="2" x="9" y="1" />
+		<entity type="Door" color="4" x="2" y="1" />
+		<entity type="Door" color="0" x="8" y="5" />
+		<entity type="Door" color="0" x="7" y="6" />
+		<entity type="Door" color="0" x="4" y="6" />
+		<entity type="Door" color="2" x="2" y="10" /> 
 	</level>
 	
 	<level floor="3">
