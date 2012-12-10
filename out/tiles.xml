@@ -1,0 +1,9 @@
+<tiles>
+	<tile name="GroundTile" frames="3,0" solid="0" id="0" />
+	<tile name="WallTile" frames="1,0" solid="1" id="1" />
+	<tile name="BlueWallTile" frames="0,0" solid="1" id="2" />
+	<tile name="GrayWallTile" frames="2,0" solid="1" id="3" />
+	
+	<tile name="LavaTile" frames="1,1" solid="1" id="4" />
+	<tile name="AbyssTile" frames="0,1" solid="1" id="5" />
+</tiles>

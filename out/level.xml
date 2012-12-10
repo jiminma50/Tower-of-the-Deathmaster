@@ -1,0 +1,35 @@
+<levels>
+	<define>
+		<pixel rgb="0,0,0" bind="0" />
+		<pixel rgb="150,150,150" bind="3" />
+		<pixel rgb="0,174,239" bind="2" />
+		<pixel rgb="140,98,57" bind="1" />
+		<pixel rgb="255,0,0" bind="4" />
+		<pixel rgb="102,45,145" bind="5" />
+	</define>
+	<level floor="1">
+<!-- 		<entity type="GreenSlime" x="5" y="0" /> -->
+<!-- 		<entity type="RedSlime" x="4" y="0" /> -->
+<!-- 		<entity type="GreenSlime" x="3" y="0" /> -->
+		
+		<entity type="StairsUp" x="5" y="5" tx="5" ty="6" />
+		<entity type="StairsUp" x="6" y="5" tx="6" ty="6" />
+		
+		<entity type="Player" x="5" y="12" />
+	</level>
+	
+	<level floor="2">	
+		<entity type="StairsDown" x="5" y="5" tx="5" ty="6" />
+		<entity type="StairsDown" x="6" y="5" tx="6" ty="6" />
+		<entity type="StairsUp" x="11" y="9" tx="10" ty="9" />
+		
+		<entity type="GreenSlime" x="9" y="9" />
+		<entity type="RedSlime" x="8" y="9" />
+		<entity type="GreenSlime" x="7" y="9" />
+	</level>
+	
+	<level floor="3">
+		<entity type="StairsUp" x="2" y="0" tx="2" ty="1" />
+		<entity type="StairsDown" x="11" y="9" tx="10" ty="9" />
+	</level>
+</levels>
