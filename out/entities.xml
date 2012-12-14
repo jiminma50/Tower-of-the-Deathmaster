@@ -1,32 +1,32 @@
 <entities>
 	<entity key="GreenSlime" sprite="12,12" name="Green Slime" hp="25" attack="15" defense="1" exp="1" gold="1" />
-	<entity key="RedSlime" sprite="12,13" name="Red Slime" hp="25" attack="20" defense="3" exp="1" gold="2" />
+	<entity key="RedSlime" sprite="12,13" name="Red Slime" hp="50" attack="20" defense="3" exp="1" gold="2" />
 	<entity key="BlackSlime" sprite="12,14" name="Black Slime" hp="75" attack="35" defense="5" exp="2" gold ="4" />
-	<entity key="KingSlime" sprite="12,15" name="King Slime" hp="325" attack="75" defense="20" exp="8" gold="14" />
-	<entity key="SmallBat" sprite="10,12" name="Small Bat" hp="35" attack="25" defense="5" exp="2" gold="2" />
-	<entity key="LargeBat" sprite="10,13" name="Large Bat" hp="100" attack="45" defense="15" exp="5" gold="13"/>
-	<entity key="BloodBat" sprite="10,14" name="Blood Bat" hp="325" attack="175" defense="80" exp="8" gold="18"/>
-	<entity key="Vampire" sprite="10,15" name="Vampire Santras" hp="625" attack="335" defense="200" exp="25" gold="50" />
-	<entity key="Skeleton" sprite="8,12" name="Skeleton" hp="65" attack="30" defense="4" exp="2" gold="3" />
-	<entity key="WarriorSkeleton" sprite="8,13" name="Skeleton Warrior" hp="145" attack="45" defense="40" exp="3" gold="7" />
+	<entity key="KingSlime" sprite="12,15" name="King Slime" hp="625" attack="185" defense="70" exp="8" gold="14" />
+	<entity key="SmallBat" sprite="10,12" name="Small Bat" hp="75" attack="25" defense="5" exp="2" gold="2" />
+	<entity key="LargeBat" sprite="10,13" name="Large Bat" hp="285" attack="45" defense="15" exp="5" gold="5"/>
+	<entity key="BloodBat" sprite="10,14" name="Blood Bat" hp="400" attack="175" defense="80" exp="8" gold="18"/>
+	<entity key="Archdemon" sprite="10,15" name="Archdemon Melphas" hp="625" attack="335" defense="200" exp="25" gold="50" />
+	<entity key="Skeleton" sprite="8,12" name="Skeleton" hp="95" attack="30" defense="4" exp="2" gold="3" />
+	<entity key="WarriorSkeleton" sprite="8,13" name="Skeleton Warrior" hp="165" attack="75" defense="20" exp="3" gold="7" />
 	<entity key="LeaderSkeleton" sprite="8,14" name="Skeleton Assassin" hp="305" attack="100" defense="75" exp="14" gold="19" />
 	<entity key="SoulSkeleton" sprite="8,15" name="Skeleton Shadowmancer" hp="610" attack="200" defense="150" exp="28" gold="38" />
-	<entity key="Undead" sprite="6,12" name="Undead" hp="100" attack="65" defense="30" exp="3" gold="7" />
-	<entity key="UndeadWarrior" sprite="6,13" name="Undead Warrior" hp="225" attack="140" defense="70" exp="7" gold="15" />
+	<entity key="Undead" sprite="6,12" name="Undead" hp="325" attack="65" defense="45" exp="3" gold="7" />
+	<entity key="UndeadWarrior" sprite="6,13" name="Undead Warrior" hp="225" attack="240" defense="110" exp="7" gold="15" />
 	<entity key="UndeadCorruptor" sprite="2,15" name="Undead Corruptor" hp="450" attack="250" defense="145" exp="15" gold="35" />
-	<entity key="ApprenticeWizard" sprite="4,12" name="Apprentice Wizard" hp="60" attack="35" defense="5" exp="5" gold="8" />
-	<entity key="MysticWizard" sprite="4,13" name="Mystic Wizard" hp="250" attack="180" defense="60" exp="17" gold="15" />
-	<entity key="Necromancer" sprite="4,14" name="Necromancer" hp="450" attack="210" defense="150" exp="30" gold="45" />
-	<entity key="DarkCaster" sprite="4,15" name="Dark Caster" hp="600" attack="375" defense="220" exp="50" gold="75" />
-	<entity key="GemGolem" sprite="10,8" name="Gem Golem" hp="35" attack="40" defense="55" exp="7" gold="9" />
-	<entity key="SapphireGolem" sprite="10,9" name="Sapphire Golem" hp="500" attack="180" defense="240" exp="24" gold="24" />
-	<entity key="RubyGolem" sprite="10,10" name="Ruby Golem" hp="825" attack="285" defense="350" exp="35" gold="50" />
+	<entity key="ApprenticeWizard" sprite="4,12" name="Apprentice Wizard" hp="120" attack="45" defense="15" exp="5" gold="8" />
+	<entity key="MysticWizard" sprite="4,13" name="Mystic Wizard" hp="350" attack="220" defense="80" exp="17" gold="15" />
+	<entity key="Necromancer" sprite="4,14" name="Necromancer" hp="650" attack="300" defense="150" exp="30" gold="45" />
+	<entity key="DarkCaster" sprite="4,15" name="Dark Caster" hp="1200" attack="455" defense="220" exp="50" gold="75" />
+	<entity key="GemGolem" sprite="10,8" name="Gem Golem" hp="455" attack="100" defense="75" exp="7" gold="9" />
+	<entity key="SapphireGolem" sprite="10,9" name="Sapphire Golem" hp="1000" attack="260" defense="130" exp="24" gold="24" />
+	<entity key="RubyGolem" sprite="10,10" name="Ruby Golem" hp="1825" attack="285" defense="350" exp="35" gold="50" />
 	<entity key="Knight" sprite="8,8" name="Marching Knight" hp="625" attack="145" defense="80" exp="13" gold="23" />
 	<entity key="CaptainKnight" sprite="8,9" name="Captain Knight" hp="1000" attack="280" defense="130" exp="23" gold="35" />
-	<entity key="BlazingKnight" sprite="8,10" name="Blazing Knight" hp="1225" attack="380" defense="180" exp="30" gold="45" />
-	<entity key="DiabolicKnight" sprite="4,11" name="Diabolic Knight" hp="1500" attack="420" defense="200" exp="32" gold="50" />
-	<entity key="SoulKnight" sprite="8,11" name="Soul Knight Korath" hp="2000" attack="450" defense="300" exp="35" gold="70" />
-	<entity key="RockConstruct" sprite="6,14" hp="450" name="Rock Construct" attack="60" defense="85" exp="8" gold="13" />
+	<entity key="BlazingKnight" sprite="8,10" name="Blazing Knight" hp="1225" attack="380" defense="200" exp="30" gold="45" />
+	<entity key="DiabolicKnight" sprite="4,11" name="Diabolic Knight" hp="1500" attack="420" defense="300" exp="32" gold="50" />
+	<entity key="SoulKnight" sprite="8,11" name="Soul Knight Korath" hp="2000" attack="450" defense="400" exp="35" gold="70" />
+	<entity key="RockConstruct" sprite="6,14" hp="450" name="Rock Construct" attack="120" defense="90" exp="8" gold="13" />
 	<entity key="VolcanicConstruct" sprite="14,11" hp="900" name="Volcanic Construct" attack="340" defense="400" exp="21" gold="55" />
 	<entity key="DuelWielder" sprite="10,11" name="Duel Wielder" hp="600" attack="325" defense="225" exp="16" gold="45" />
 	<entity key="DarkWalker" sprite="14,9" name="Dark Walker" hp="1000" attack="500" defense="350" exp="32" gold="80" />

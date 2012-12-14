@@ -1,6 +1,5 @@
 package me.deathjockey.tod.dy;
 
-import java.io.File;
 import java.io.IOException;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -13,13 +12,11 @@ import org.xml.sax.SAXException;
 public class XMLFile {
 
 	private String loc;
-	private File phys_f;
 	
 	private Document xmlDoc;
 	
 	public XMLFile(String loc) {
 		this.loc = loc;
-		phys_f = new File(System.getProperty("user.dir") + System.getProperty("file.separator") + "out" + loc);
 		
 		try {
 			init();
@@ -36,15 +33,11 @@ public class XMLFile {
 	private void init() throws SAXException, IOException, ParserConfigurationException {
 		DocumentBuilderFactory builder = DocumentBuilderFactory.newInstance();
 		DocumentBuilder docBuilder = builder.newDocumentBuilder();
-		xmlDoc = docBuilder.parse(phys_f);
+		xmlDoc = docBuilder.parse(this.getClass().getResourceAsStream(loc));
 	}
 
 	public String getPath() {
 		return loc;
-	}
-	
-	public File getFile() {
-		return phys_f;
 	}
 	
 	public Document asDocument() {

@@ -20,8 +20,8 @@ public class Stairs extends Entity {
 		this.tx = tx;
 		this.ty = ty;
 	}
-
-	public void use() {
+	
+	public void interact(Player player) {
 		switch(dir) {
 		case 0:
 			game.upFloor(tx, ty);
@@ -31,6 +31,6 @@ public class Stairs extends Entity {
 			break;
 		}
 		Sound.stairs.play();
-	}
-	
+		player.lastMove = System.currentTimeMillis() + 1500;
+	}	
 }

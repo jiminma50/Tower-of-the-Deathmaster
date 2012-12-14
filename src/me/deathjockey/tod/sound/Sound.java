@@ -11,6 +11,11 @@ public class Sound {
 	public static final Sound stairs = new Sound("/stairs.wav");
 	public static final Sound hit = new Sound("/hit.wav");
 	public static final Sound pickup = new Sound("/item.wav");
+	public static final Sound select = new Sound("/select.wav");
+	public static final Sound buy = new Sound("/buy.wav");
+	public static final Sound die = new Sound("/die.wav");
+	public static final Sound criticalHit = new Sound("/critical.wav");
+	public static final Sound parry = new Sound("/parry.wav");
 	
 	private AudioClip clip;
 

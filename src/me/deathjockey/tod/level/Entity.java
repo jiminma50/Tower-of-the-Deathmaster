@@ -6,6 +6,8 @@ import java.util.Map;
 import me.deathjockey.tod.screen.Art;
 import me.deathjockey.tod.screen.Bitmap;
 import me.deathjockey.tod.screen.Screen;
+import me.deathjockey.tod.screen.UI;
+import me.deathjockey.tod.sound.Sound;
 
 public class Entity implements Cloneable {
 	
@@ -14,7 +16,7 @@ public class Entity implements Cloneable {
 	public int x, y, w = 32, h = 32;
 	public int hp, attack, defense, exp, gold;
 	public String name, frame;
-	protected Bitmap[] frames;
+	public Bitmap[] frames;
 	public boolean removed = false;
 	protected boolean hostile = true;
 	
@@ -49,6 +51,12 @@ public class Entity implements Cloneable {
 	
 	public void remove() {
 		removed = true;
+		if(hostile) {
+			player.put("stat.gold", player.get("stat.gold") + gold);
+			player.put("stat.exp", player.get("stat.exp") + exp);
+			Sound.die.play();
+			UI.verbose(name + " was slain!Got " + gold + " GLD and " + exp + " EXP!");
+		}
 	}
 	
 	public void tick() {
@@ -68,11 +76,18 @@ public class Entity implements Cloneable {
 		}
 		return null;
 	}
+	
+	private Player player;
 
 	public void interact(Player player) {
-		player.put("stat.gold", player.get("stat.gold") + gold);
-		player.put("stat.exp", player.get("stat.exp") + exp);
-		remove();
+		if(hostile) {
+			this.player = player;
+			UI.combat(player, this);
+		}
+	}
+
+	public void render(Screen screen, int i, int j) {
+		screen.render(frames[fr], i, j);
 	}
 	
 }

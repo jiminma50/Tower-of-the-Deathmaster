@@ -40,10 +40,11 @@ public class InputHandler implements KeyListener {
 	public Key down = new Key();
 	public Key left = new Key();
 	public Key right = new Key();
-	
+	public Key enter = new Key();
 	public Key cursor_up = new Key();
 	public Key cursor_down = new Key();
-	public Key enter = new Key();
+	public Key confirm = new Key();
+	public Key escape = new Key();
 	
 	public InputHandler(TowerComponent game) {
 		game.addKeyListener(this);
@@ -78,7 +79,8 @@ public class InputHandler implements KeyListener {
 		
 		if(k == KeyEvent.VK_2) cursor_up.toggle(pressed);
 		if(k == KeyEvent.VK_8) cursor_down.toggle(pressed);
-		if(k == KeyEvent.VK_SPACE) enter.toggle(pressed);
-		
+		if(k == KeyEvent.VK_SPACE) confirm.toggle(pressed);
+		if(k == KeyEvent.VK_ESCAPE) escape.toggle(pressed);
+		if(k == KeyEvent.VK_ENTER) enter.toggle(pressed);
 	}
 }

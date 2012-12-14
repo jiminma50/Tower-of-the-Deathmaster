@@ -10,8 +10,10 @@ import me.deathjockey.tod.TowerComponent;
 public class Art {
 
 	public static final Bitmap[][] sprites = cut("/icon0.png", 32, 32);
-//	public static final Bitmap[][] levels = cut("/levels.png", 12, 13);
+	public static final Bitmap black = load("/black.png");
+	public static final Bitmap pk = load("/pk.png");
 	public static final Bitmap[][] font = cut("/font.png", 16, 16);
+	
 	
 	private static Bitmap[][] cut(String string, int w, int h) {
         return cut(string, w, h, 0, 0);

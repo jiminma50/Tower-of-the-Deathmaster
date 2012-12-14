@@ -14,6 +14,7 @@ import me.deathjockey.tod.dy.DynamicsLoader;
 import me.deathjockey.tod.level.Level;
 import me.deathjockey.tod.level.Player;
 import me.deathjockey.tod.level.Tile;
+import me.deathjockey.tod.screen.Art;
 import me.deathjockey.tod.screen.Font;
 import me.deathjockey.tod.screen.Screen;
 import me.deathjockey.tod.screen.UI;
@@ -37,6 +38,10 @@ public class TowerComponent extends Canvas implements Runnable, MouseListener, M
 		
 	}
 	
+	long levelTrans;
+	boolean hasTrans = false;
+	short transint = 1500, dir = 0;
+	
 	public void upFloor(int tx, int ty) {
 		floor++;
 		Player p = level.player;
@@ -45,7 +50,10 @@ public class TowerComponent extends Canvas implements Runnable, MouseListener, M
 		p.level = level;
 		p.setPos(tx, ty);
 		level.addEntity(p);
-		audioPlayer.startBackgroundMusic(floor);
+//		audioPlayer.startBackgroundMusic(floor);
+		hasTrans = true;
+		levelTrans = System.currentTimeMillis();
+		dir = 0;
 	}
 	
 	public void downFloor(int tx, int ty) {
@@ -57,7 +65,10 @@ public class TowerComponent extends Canvas implements Runnable, MouseListener, M
 		p.level = level;
 		p.setPos(tx, ty);
 		level.addEntity(p);
-		audioPlayer.startBackgroundMusic(floor);
+//		audioPlayer.startBackgroundMusic(floor);
+		hasTrans = true;
+		levelTrans = System.currentTimeMillis();
+		dir = 1;
 	}
 	
 	public void start() {
@@ -113,8 +124,32 @@ public class TowerComponent extends Canvas implements Runnable, MouseListener, M
 		UI.render(screen);
 		level.render(screen);
 		
+		if(hasTrans) {
+			if(System.currentTimeMillis() - levelTrans > transint) {
+				hasTrans = false;
+				levelTrans += transint;
+			} else {
+				screen.render(Art.black, 0, 0);
+				if(System.currentTimeMillis() - levelTrans < transint / 2) {
+					switch(dir) {
+					case 0:
+						Font.draw(screen, "Floor " + (floor - 1), WIDTH / 2 - Font.getStringWidth("Floor " + floor) / 2, HEIGHT / 4 * 3 - 7);
+						break;
+					case 1:
+						Font.draw(screen, "Floor " + (floor + 1), WIDTH / 2 - Font.getStringWidth("Floor " + floor) / 2, HEIGHT / 4 * 3 - 7);
+						break;
+					}
+				} else {
+					Font.draw(screen, "Floor " + floor, WIDTH / 2 - Font.getStringWidth("Floor " + floor) / 2, HEIGHT / 4 * 3 - 7);
+				}
+				
+			}
+		}
+		
 		Font.draw(screen, hx + "," + hy, 10, 10);
 		Font.draw(screen, "X", hx * Tile.SIZE + Level.X_OFFSET + (Tile.SIZE / 2 - 7) , Level.Y_OFFSET + hy * Tile.SIZE + (Tile.SIZE / 2 - 7));
+		
+		UI.extraOverlay(screen);
 		
 		g.drawImage(screen.image, 0, 0, WIDTH, HEIGHT, null);
 		g.dispose();
@@ -123,7 +158,7 @@ public class TowerComponent extends Canvas implements Runnable, MouseListener, M
 
 	private void tick() {
 		level.tick();
-		UI.tick(floor);
+		UI.tick(floor, input);
 	}
 	
 	Level level;
@@ -137,7 +172,7 @@ public class TowerComponent extends Canvas implements Runnable, MouseListener, M
 		DynamicsLoader.init(this, input);
 		level = Level.levels.get(floor);
 		audioPlayer = new AudioPlayer();
-		audioPlayer.startBackgroundMusic(floor);
+//		audioPlayer.startBackgroundMusic(floor);
 		UI.track(level.player);
 	}
 

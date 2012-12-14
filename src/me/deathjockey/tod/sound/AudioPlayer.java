@@ -59,37 +59,12 @@ public class AudioPlayer {
         return false;
     }
     
-    int ns = 0, s = 0;
-    
     public void startBackgroundMusic(int floor) {
-        String backgroundTrack = "/loop";
-        boolean chg = false;
-        if(floor > 0 && floor <= 15) {
-        	backgroundTrack += "1.ogg";
-        	s = 0;
-        }
-        if(floor > 15 && floor < 30) {
-        	backgroundTrack += "2.ogg";
-        	s = 1;
-        }
-        if(floor >= 30 && floor <= 45) {
-        	backgroundTrack += "3.ogg";
-        	s = 2;
-        }
-        if(floor > 45) {
-        	backgroundTrack += "4.ogg";
-        	s = 3;
-        }
-        if(ns != s) {
-        	ns = s;
-        	chg = true;
-        }
+        String backgroundTrack = "/loop1.ogg";
+        
         if (!isMuted() && hasOggPlaybackSupport()) {
             if(!isPlaying(BACKGROUND_TRACK)) soundSystem.backgroundMusic(BACKGROUND_TRACK, AudioPlayer.class.getResource(backgroundTrack), backgroundTrack, true);
-            if(chg) {
-            	if(isPlaying(BACKGROUND_TRACK)) soundSystem.stop(BACKGROUND_TRACK);
-            	soundSystem.backgroundMusic(BACKGROUND_TRACK, AudioPlayer.class.getResource(backgroundTrack), backgroundTrack, true);
-            }
+            
         }
     }
 

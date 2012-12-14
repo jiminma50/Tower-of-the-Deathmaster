@@ -14,7 +14,9 @@ import me.deathjockey.tod.level.Door;
 import me.deathjockey.tod.level.Entity;
 import me.deathjockey.tod.level.Item;
 import me.deathjockey.tod.level.Level;
+import me.deathjockey.tod.level.NPC;
 import me.deathjockey.tod.level.Player;
+import me.deathjockey.tod.level.Shop;
 import me.deathjockey.tod.level.Stairs;
 import me.deathjockey.tod.level.Tile;
 
@@ -38,9 +40,8 @@ public class DynamicsLoader {
 		NodeList itemNode = ((Element)doc.getElementsByTagName("items").item(0)).getElementsByTagName("item");
 		for(int i = 0; i < itemNode.getLength(); i++) {
 			Element e = (Element) itemNode.item(i);
-			Item item = new Item(e.getAttribute("name"), e.getAttribute("sprite"), e.getAttribute("give"));
+			Item item = new Item(e.getAttribute("name"), e.getAttribute("sprite"), e.getAttribute("hint"), e.getAttribute("give"));
 			Item.items.put(e.getAttribute("key"), item);
-			
 		}
 	}
 
@@ -134,9 +135,27 @@ public class DynamicsLoader {
 					continue;
 				}
 				if(type.equalsIgnoreCase("Door")) {
-					Door door = new Door(Integer.parseInt(ee.getAttribute("color")));
+					int t = Integer.parseInt(ee.getAttribute("color"));
+					Door door = null;
+					if(t != 8) door = new Door(null, t);
+					else { 
+						door = new Door(lvs[floor - 1], t);
+						door.setRequire(ee.getAttribute("require"));
+					}
 					door.setPos(Integer.parseInt(ee.getAttribute("x")), Integer.parseInt(ee.getAttribute("y")));
 					lvs[floor - 1].addEntity(door);
+					continue;
+				}
+				if(type.equalsIgnoreCase("Shop")) {
+					Shop shop = new Shop(ee.getAttribute("use"), ee.getAttribute("sell"));
+					shop.setPos(Integer.parseInt(ee.getAttribute("x")), Integer.parseInt(ee.getAttribute("y")));
+					lvs[floor - 1].addEntity(shop);
+					continue;
+				}
+				if(type.equalsIgnoreCase("npc")) {
+					NPC npc = new NPC(ee.getAttribute("title"), ee.getAttribute("oninteract"), (ee.getAttribute("remove").equals("1")) ? true : false, Integer.parseInt(ee.getAttribute("sprite")));
+					npc.setPos(Integer.parseInt(ee.getAttribute("x")), Integer.parseInt(ee.getAttribute("y")));
+					lvs[floor - 1].addEntity(npc);
 					continue;
 				}
 				Entity ts = Entity.newInstance(type);

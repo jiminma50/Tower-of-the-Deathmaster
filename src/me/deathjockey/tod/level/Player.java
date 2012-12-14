@@ -14,8 +14,9 @@ public class Player extends Entity {
 
 	private static final int DIRECTION_UP = 0, DIRECTION_DOWN = 1, DIRECTION_LEFT = 2, DIRECTION_RIGHT = 3;
 	private Map<String, Integer> status = new HashMap<String, Integer>();
-	private int dir = DIRECTION_UP, frame = 0;
-	private long lastMove = System.currentTimeMillis(), frameTick = System.currentTimeMillis();
+	int dir = DIRECTION_UP;
+	private int frame = 0;
+	public long lastMove = System.currentTimeMillis(), frameTick = System.currentTimeMillis();
 	private short moveint = 100;
 	
 	private static Bitmap[][] frames = {
@@ -25,6 +26,8 @@ public class Player extends Entity {
 		{ Art.sprites[14][14], Art.sprites[15][14] }
 	};
 	
+	public boolean canmove = true;
+	
 	private InputHandler input;
 	private TowerComponent game;
 	public Level level;
@@ -33,14 +36,15 @@ public class Player extends Entity {
 		super("Player", "", 1, 10, 10, 0, 0);
 		put("stat.hp", 1000);
 		put("stat.level", 1);
-		put("stat.attack", 10);
-		put("stat.defense", 10);
+		put("stat.attack", 100000);
+		put("stat.defense", 100000);
 		put("stat.exp", 0);
 		put("stat.gold", 0);
-		put("key.yellow", 0);
-		put("key.blue", 0);
-		put("key.red", 0);
-		put("key.green", 0);
+		put("key.yellow", 100);
+		put("key.blue", 100);
+		put("key.red", 100);
+		put("key.green", 100);
+		put("item.monsterdex", 0);
 		this.game = game;
 		this.input = input;
 		this.level = level;
@@ -49,26 +53,40 @@ public class Player extends Entity {
 	
 	public void put(String key, int value) {
 		status.put(key, value);
+		if(status.get(key) < 0) {
+			status.put(key, 0);
+		}
+		
 	}
 	
+	public void levelUp() {
+		status.put("stat.hp", status.get("stat.hp") + 750);
+		status.put("stat.attack", status.get("stat.attack") + 7);
+		status.put("stat.defense", status.get("stat.defense") + 7);
+	}
+
 	public int get(String key) {
 		return status.get(key);
 	}
 	
 	public void tick() {
 		if(input.up.down) {
+			if(!canmove) return;
 			this.dir = DIRECTION_UP;
 			move(DIRECTION_UP, 1);
 		} else if(input.down.down) {
+			if(!canmove) return;
 			this.dir = DIRECTION_DOWN;
 			move(DIRECTION_DOWN, 1);
 		} else if(input.left.down) {
+			if(!canmove) return;
 			this.dir = DIRECTION_LEFT;
 			move(DIRECTION_LEFT, 1);
 		} else if(input.right.down) {
+			if(!canmove) return;
 			this.dir = DIRECTION_RIGHT;
 			move(DIRECTION_RIGHT, 1);
-		} else {
+		} else {			
 			if(System.currentTimeMillis() - lastMove > moveint) {
 				lastMove += moveint;
 			}
@@ -80,7 +98,8 @@ public class Player extends Entity {
 		}
 	}
 	
-	private void move(int dir, int amount) {
+	public void move(int dir, int amount) {
+		if(!canmove) return;
 		if(System.currentTimeMillis() - lastMove < moveint) return;
 		int intent = -1;
 		if(dir == DIRECTION_LEFT) {
@@ -126,16 +145,16 @@ public class Player extends Entity {
 			facing.interact(this);
 		} 
 		if(facing instanceof Stairs) {
-			((Stairs) facing).use();
+			((Stairs) facing).interact(this);
 		}
-		if(facing instanceof Door || facing instanceof Item) {
-			(facing).interact(this);
+		if(facing instanceof Door || facing instanceof Item || facing instanceof Shop || facing instanceof NPC) {
 			move(invertDir(intent), 1);
+			(facing).interact(this);
 		}
 		lastMove += moveint;
 	}
 	
-	private int invertDir(int dir) {
+	public int invertDir(int dir) {
 		if(dir == DIRECTION_UP) return DIRECTION_DOWN;
 		if(dir == DIRECTION_DOWN) return DIRECTION_UP;
 		if(dir == DIRECTION_LEFT) return DIRECTION_RIGHT;

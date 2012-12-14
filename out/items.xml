@@ -1,27 +1,33 @@
 <items>
-	<item key="YellowKey" sprite="4,4" name="Yellow Key" give="key.yellow:1" />
-	<item key="BlueKey" sprite="5,4" name="Blue Key" give="key.blue:1" />
-	<item key="RedKey" sprite="6,4" name="Red Key" give="key.red:1" />
-	<item key="GreenKey" sprite="7,4" name="Green Key" give="key.green:1" />
-	<item key="MasterKey" sprite="3,6" name="Master Key" give="key.yellow:1,key.blue:1,key.red:1" />
+	<item key="YellowKey" sprite="4,4" name="Yellow Key" give="key.yellow:1" hint="+1 Yellow Key" />
+	<item key="BlueKey" sprite="5,4" name="Blue Key" give="key.blue:1" hint="+1 Blue Key" />
+	<item key="RedKey" sprite="6,4" name="Red Key" give="key.red:1" hint="+1 Red Key" />
+	<item key="GreenKey" sprite="7,4" name="Green Key" give="key.green:1" hint="+1 Green Key" />
+	<item key="MasterKey" sprite="3,6" name="Master Key" give="key.yellow:1,key.blue:1,key.red:1" hint="+1 R,B,Y Keys"/>
 	
-	<item key="HealthPotion" sprite="11,5" name="Health Potion" give="stat.hp:250" />
-	<item key="RestorationPotion" sprite="12,5" name="Restoration Potion" give="stat.hp:520" />
+	<item key="HealthPotion" sprite="11,5" name="Health Potion" give="stat.hp:250" hint="+250 HP" />
+	<item key="RestorationPotion" sprite="12,5" name="Restoration Potion" give="stat.hp:500" hint="+500 HP" />
+	<item key="HolyPotion" sprite="13,5" name="Holy Potion" give="stat.hp:700" hint="+700 HP" />
+	<item key="DivinePotion" sprite="14,5" name="Divine Potion" give="stat.hp:1000" hint="+1000 HP" />
 	
-	<item key="ShortSword" sprite="0,8" name="Short Sword" give="stat.attack:10" />
-	<item key="SilverSword" sprite="1,8" name="Silver Sword" give="stat.attack:30" />
-	<item key="PaladinSword" sprite="2,8" name="Paladin Sword" give="stat.attack:55" />
-	<item key="EmeraldSword" sprite="3,8" name="Emerald Sword" give="stat.attack:75" />
-	<item key="JockeyBlade" sprite="0,9" name="Blade of DeathJockey" give="stat.attack:100" />
+	<item key="ShortSword" sprite="0,8" name="Short Sword" give="stat.attack:10" hint="+10 ATK" />
+	<item key="SilverSword" sprite="1,8" name="Silver Sword" give="stat.attack:30" hint="+30 ATK" />
+	<item key="PaladinSword" sprite="2,8" name="Paladin Sword" give="stat.attack:55" hint="+55 ATK"/>
+	<item key="EmeraldSword" sprite="3,8" name="Emerald Sword" give="stat.attack:75" hint="+75 ATK" />
+	<item key="JockeyBlade" sprite="0,9" name="Blade of DeathJockey" give="stat.attack:100" hint="+100 ATK" />
 	
-	<item key="SmallShield" sprite="0,10" name="Small Shield" give="stat.defense:10" />
-	<item key="SilverShield" sprite="1,10" name="Silver Shield" give="stat.defense:30" />
-	<item key="PaladinShield" sprite="2,10" name="Paladin Shield" give="stat.defense:55" />
-	<item key="GemShield" sprite="3,10" name="Gem Shield" give="stat.defense:75" />
-	<item key="CrystallineShield" sprite="0,11" name="Crystalline Shield" give="stat.defense:100" />
+	<item key="SmallShield" sprite="0,10" name="Small Shield" give="stat.defense:10" hint="+10 DEF"/>
+	<item key="SilverShield" sprite="1,10" name="Silver Shield" give="stat.defense:30" hint="+30 DEF"/>
+	<item key="PaladinShield" sprite="2,10" name="Paladin Shield" give="stat.defense:55" hint="+55 DEF"/>
+	<item key="GemShield" sprite="3,10" name="Gem Shield" give="stat.defense:75" hint="+75 DEF"/>
+	<item key="CrystallineShield" sprite="0,11" name="Crystalline Shield" give="stat.defense:100" hint="+100 DEF" />
 	
-	<item key="AttackGem" sprite="11,4" name="Attack Gem" give="stat.attack:2" />
-	<item key="DefenseGem" sprite="12,4" name="Defense Gem" give="stat.defense:2" />
-	<item key="GreatAttackGem" sprite="13,4" name="Great Attack Gem" give="stat.attack:4" />
-	<item key="GreatDefenseGem" sprite="14,4" name="Great Defense Gem" give="stat.defense:4" />
+	<item key="AttackGem" sprite="11,4" name="Attack Gem" give="stat.attack:2" hint="+2 ATK"/>
+	<item key="DefenseGem" sprite="12,4" name="Defense Gem" give="stat.defense:2" hint="+2 DEF"/>
+	<item key="GreatAttackGem" sprite="13,4" name="Great Attack Gem" give="stat.attack:5" hint="+5 ATK"/>
+	<item key="GreatDefenseGem" sprite="14,4" name="Great Defense Gem" give="stat.defense:5" hint="+5 DEF"/>
+	
+	<item key="GoldCoin" sprite="2,4" name="Big Gold Coin" give="stat.gold:250" hint="+250 GLD" />
+	<item key="Monsterdex" sprite="2,3" name="Monsterdex" give="item.monsterdex:1" hint="You can check monster status" />
+	
 </items>

@@ -7,18 +7,21 @@ import java.util.Map;
 
 import me.deathjockey.tod.screen.Art;
 import me.deathjockey.tod.screen.Bitmap;
+import me.deathjockey.tod.screen.UI;
 import me.deathjockey.tod.sound.Sound;
 
 public class Item extends Entity {
 
 	public static Map<String, Item> items = new HashMap<String, Item>();
 	
+	private String description = "";
 	private Map<String, Integer> give = new HashMap<String, Integer>();
 	private List<String> giveList = new ArrayList<String>();
 	
-	public Item(String name, String frame, String give) {
+	public Item(String name, String frame, String des, String give) {
 		super(name, "", 1, 0, 1000000, 0, 0);
 		this.name = name;
+		description = des;
 		hostile = false;
 		if(frame.equals("")) return;
 		String[] fxy = frame.split(",");
@@ -35,10 +38,6 @@ public class Item extends Entity {
 		}
 	}
 	
-	public void tick() {
-		
-	}
-	
 	public static Item newInstance(String key) {
 		try {
 			return (Item) items.get(key).clone();
@@ -52,6 +51,7 @@ public class Item extends Entity {
 		for(int i = 0; i < giveList.size(); i++) {
 			player.put(giveList.get(i), player.get(giveList.get(i)) + give.get(giveList.get(i)));
 		}
+		UI.verbose("Picked up " + name + "!" + description);
 		Sound.pickup.play();
 		remove();
 	}

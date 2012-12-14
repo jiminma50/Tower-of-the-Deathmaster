@@ -59,7 +59,10 @@ public class Level {
 
 	public Entity getEntityAt(int dir, int x, int y) {
 		for(Entity e : entities) {
-			if(e.x == x && e.y == y) return e;
+			if(e.x == x && e.y == y && ((e instanceof NPC) || (e instanceof Door))) return e;
+		}
+		for(Entity e : entities) {
+			if(e.x == x && e.y == y && !(e instanceof Player)) return e;
 		}
 		return null;
 	}
