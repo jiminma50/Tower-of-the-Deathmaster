@@ -50,7 +50,7 @@ public class TowerComponent extends Canvas implements Runnable, MouseListener, M
 		p.level = level;
 		p.setPos(tx, ty);
 		level.addEntity(p);
-//		audioPlayer.startBackgroundMusic(floor);
+		audioPlayer.startBackgroundMusic(floor);
 		hasTrans = true;
 		levelTrans = System.currentTimeMillis();
 		dir = 0;
@@ -58,14 +58,13 @@ public class TowerComponent extends Canvas implements Runnable, MouseListener, M
 	
 	public void downFloor(int tx, int ty) {
 		floor --;
-		if(floor < 1) floor = 1;
 		Player p = level.player;
 		level.player = null;
 		level = Level.levels.get(floor);
 		p.level = level;
 		p.setPos(tx, ty);
 		level.addEntity(p);
-//		audioPlayer.startBackgroundMusic(floor);
+		audioPlayer.startBackgroundMusic(floor);
 		hasTrans = true;
 		levelTrans = System.currentTimeMillis();
 		dir = 1;
@@ -129,14 +128,17 @@ public class TowerComponent extends Canvas implements Runnable, MouseListener, M
 				hasTrans = false;
 				levelTrans += transint;
 			} else {
+				
 				screen.render(Art.black, 0, 0);
 				if(System.currentTimeMillis() - levelTrans < transint / 2) {
 					switch(dir) {
 					case 0:
-						Font.draw(screen, "Floor " + (floor - 1), WIDTH / 2 - Font.getStringWidth("Floor " + floor) / 2, HEIGHT / 4 * 3 - 7);
+						if(floor >= 0 && floor <= 20) Font.draw(screen, "Floor " + (floor - 1), WIDTH / 2 - Font.getStringWidth("Floor " + floor) / 2, HEIGHT / 4 * 3 - 7);
+						if(floor < 0) Font.draw(screen, "Floor " + (floor - 1), WIDTH / 2 - Font.getStringWidth("Floor " + floor) / 2, HEIGHT / 4 * 3 - 7);
 						break;
 					case 1:
-						Font.draw(screen, "Floor " + (floor + 1), WIDTH / 2 - Font.getStringWidth("Floor " + floor) / 2, HEIGHT / 4 * 3 - 7);
+						if(floor >= 0 && floor <= 20) Font.draw(screen, "Floor " + (floor + 1), WIDTH / 2 - Font.getStringWidth("Floor " + floor) / 2, HEIGHT / 4 * 3 - 7);
+						if(floor < 0 ) Font.draw(screen, "Floor " + (floor + 1), WIDTH / 2 - Font.getStringWidth("Floor " + floor) / 2, HEIGHT / 4 * 3 - 7);
 						break;
 					}
 				} else {
@@ -172,7 +174,7 @@ public class TowerComponent extends Canvas implements Runnable, MouseListener, M
 		DynamicsLoader.init(this, input);
 		level = Level.levels.get(floor);
 		audioPlayer = new AudioPlayer();
-//		audioPlayer.startBackgroundMusic(floor);
+		audioPlayer.startBackgroundMusic(floor);
 		UI.track(level.player);
 	}
 

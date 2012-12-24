@@ -166,7 +166,8 @@ public class DynamicsLoader {
 			
 		}
 		for(int i = 0; i < lvs.length; i++) {
-			Level.levels.put(lvs[i].floor, lvs[i]);
+			if(i <= 20) Level.levels.put(lvs[i].floor, lvs[i]);
+			if(i >= 21 && i <= 51) Level.levels.put(-(i - 21), lvs[i]);
 			
 		}
 	}

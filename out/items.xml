@@ -4,11 +4,18 @@
 	<item key="RedKey" sprite="6,4" name="Red Key" give="key.red:1" hint="+1 Red Key" />
 	<item key="GreenKey" sprite="7,4" name="Green Key" give="key.green:1" hint="+1 Green Key" />
 	<item key="MasterKey" sprite="3,6" name="Master Key" give="key.yellow:1,key.blue:1,key.red:1" hint="+1 R,B,Y Keys"/>
+	<item key="RustyKey" sprite="1,6" name="Rusty Key" give="item.rustykey:1" hint="Underground floors accessable!" />
+	<item key="SoulKey" sprite="2,6" name="Soul Key" give="item.soulkey:1" hint="Soul Section Accessable!" />
+	
+	<item key="Cross" sprite="0,4" name="Power Cross" give="item.cross:1" hint="Return it to the fairy!" />
 	
 	<item key="HealthPotion" sprite="11,5" name="Health Potion" give="stat.hp:250" hint="+250 HP" />
 	<item key="RestorationPotion" sprite="12,5" name="Restoration Potion" give="stat.hp:500" hint="+500 HP" />
 	<item key="HolyPotion" sprite="13,5" name="Holy Potion" give="stat.hp:700" hint="+700 HP" />
 	<item key="DivinePotion" sprite="14,5" name="Divine Potion" give="stat.hp:1000" hint="+1000 HP" />
+	
+	<item key="IceTincture" sprite="14,6" name="Tincture of Ice" give="item.tinctureofice:1" hint="Can now open lava passage!" />
+	<item key="DivineBlessBottle" sprite="10,6" name="Bottle of Divine Blessing" hint="+80 All Status" give="stat.attack:80,stat.defense:80,stat.gold:100,stat.exp:100,stat.hp:800," />
 	
 	<item key="ShortSword" sprite="0,8" name="Short Sword" give="stat.attack:10" hint="+10 ATK" />
 	<item key="SilverSword" sprite="1,8" name="Silver Sword" give="stat.attack:30" hint="+30 ATK" />
@@ -28,6 +35,9 @@
 	<item key="GreatDefenseGem" sprite="14,4" name="Great Defense Gem" give="stat.defense:5" hint="+5 DEF"/>
 	
 	<item key="GoldCoin" sprite="2,4" name="Big Gold Coin" give="stat.gold:250" hint="+250 GLD" />
-	<item key="Monsterdex" sprite="2,3" name="Monsterdex" give="item.monsterdex:1" hint="You can check monster status" />
+	<item key="Rod" sprite="2,3" name="Ability Rod" give="item.rod:1" hint="You can check monster status" />
 	
+	<item key="SmallWing" sprite="0,2" name="Wing of Knowledge" give="stat.level:1" hint="Level up!" />
+	<item key="Wing" sprite="1,2" name="Wing of Intelligence" give="stat.level:2" hint="Level up twice!" />
+	<item key="BigWing" sprite="2,2" name="Wing of Divine Gift" give="stat.level:3" hint="Level up thrice!" />
 </items>

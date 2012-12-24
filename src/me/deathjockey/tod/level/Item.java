@@ -50,6 +50,11 @@ public class Item extends Entity {
 	public void interact(Player player) {
 		for(int i = 0; i < giveList.size(); i++) {
 			player.put(giveList.get(i), player.get(giveList.get(i)) + give.get(giveList.get(i)));
+			if(giveList.get(i).equalsIgnoreCase("stat.level")) {
+				for(int j = 0; j < give.get(giveList.get(i)); j++) {
+					player.levelUp();
+				}
+			}
 		}
 		UI.verbose("Picked up " + name + "!" + description);
 		Sound.pickup.play();

@@ -18,7 +18,7 @@ public class Entity implements Cloneable {
 	public String name, frame;
 	public Bitmap[] frames;
 	public boolean removed = false;
-	protected boolean hostile = true;
+	public boolean hostile = true;
 	
 	private int fi = 250, fr = 0;
 	private long ft = System.currentTimeMillis();

@@ -118,8 +118,26 @@ public class Door extends Entity {
 			
 			break;
 		case 9:
-			UI.verbose("The lava magically disappears!");
-			open();
+			if(player.get("item.tinctureofice") != 0) {
+				UI.verbose("The lava magically disappears!");
+				open();
+			}
+			break;
+		case 10:
+			if(player.get("item.rustykey") != 0) {
+				UI.verbose("Magically locked wall opens!");
+				open();
+			} else {
+				UI.verbose("Magic wall requires rusty key!");
+			}
+			break;
+		case 11:
+			if(player.get("item.soulkey") != 0) {
+				UI.verbose("Magically locked wall opens!");
+				open();
+			} else {
+				UI.verbose("Magic wall requires soul key!");
+			}
 			break;
 		}
 	}

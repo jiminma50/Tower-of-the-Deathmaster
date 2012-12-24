@@ -8,6 +8,7 @@ import me.deathjockey.tod.TowerComponent;
 import me.deathjockey.tod.screen.Art;
 import me.deathjockey.tod.screen.Bitmap;
 import me.deathjockey.tod.screen.Screen;
+import me.deathjockey.tod.screen.UI;
 import me.deathjockey.tod.sound.Sound;
 
 public class Player extends Entity {
@@ -34,17 +35,23 @@ public class Player extends Entity {
 	
 	public Player(InputHandler input, TowerComponent game, Level level) {
 		super("Player", "", 1, 10, 10, 0, 0);
-		put("stat.hp", 1000);
-		put("stat.level", 1);
-		put("stat.attack", 100000);
-		put("stat.defense", 100000);
-		put("stat.exp", 0);
-		put("stat.gold", 0);
-		put("key.yellow", 100);
-		put("key.blue", 100);
-		put("key.red", 100);
-		put("key.green", 100);
-		put("item.monsterdex", 0);
+		put("stat.hp", 15897);
+		put("stat.level", 27);
+		put("stat.attack", 680);
+		put("stat.defense", 561);
+		put("stat.exp", 67);
+		put("stat.gold", 23);
+		put("key.yellow", 5);
+		put("key.blue", 6);
+		put("key.red", 1);
+		put("key.green", 0);
+		put("item.rod", 1);
+		put("item.rustykey", 1);
+		put("item.soulkey", 0);
+		put("item.cross", 0);
+		//pots
+		put("item.tinctureofice", 1);
+		
 		this.game = game;
 		this.input = input;
 		this.level = level;
@@ -70,6 +77,7 @@ public class Player extends Entity {
 	}
 	
 	public void tick() {
+		if(!canmove) lastMove = System.currentTimeMillis();
 		if(input.up.down) {
 			if(!canmove) return;
 			this.dir = DIRECTION_UP;
@@ -89,6 +97,12 @@ public class Player extends Entity {
 		} else {			
 			if(System.currentTimeMillis() - lastMove > moveint) {
 				lastMove += moveint;
+			}
+		}
+		
+		if(input.use_rod.down && !UI.usingRod) {
+			if(this.get("item.rod") != 0) {
+				UI.useRod(this, level);
 			}
 		}
 		

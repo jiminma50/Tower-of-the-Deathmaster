@@ -1,9 +1,13 @@
 package me.deathjockey.tod.screen;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import me.deathjockey.tod.InputHandler;
 import me.deathjockey.tod.TowerComponent;
 import me.deathjockey.tod.level.Combat;
 import me.deathjockey.tod.level.Entity;
+import me.deathjockey.tod.level.Level;
 import me.deathjockey.tod.level.NPC;
 import me.deathjockey.tod.level.Player;
 import me.deathjockey.tod.level.Shop;
@@ -21,6 +25,7 @@ public class UI {
 	}
 	
 	public static void render(Screen screen) {
+		if(player == null) return;
 		for(int i = 0; i < TowerComponent.WIDTH / Tile.SIZE; i++) {
 			for(int j = 0; j < TowerComponent.HEIGHT / Tile.SIZE; j++) {
 				screen.render(Art.sprites[0][0], i * Tile.SIZE, j * Tile.SIZE);
@@ -60,7 +65,7 @@ public class UI {
 		Font.draw(screen, "X " + player.get("key.blue"), 85, 360);
 		Font.draw(screen, "X " + player.get("key.red"), 85, 390);
 		Font.draw(screen, "X " + player.get("key.green"), 85, 420);
-		if(System.currentTimeMillis() - lastVerbose < 2500) Font.draw(screen, verbose, TowerComponent.WIDTH / 2 - Font.getStringWidth(verbose) / 2, 10);
+		if(System.currentTimeMillis() - lastVerbose < 2500 + verbose.split(" ").length * 250) Font.draw(screen, verbose, TowerComponent.WIDTH / 2 - Font.getStringWidth(verbose) / 2, 10);
 		
 	}
 	
@@ -138,6 +143,30 @@ public class UI {
 				Font.draw(screen, npc.text[i], 145, 110 + i * 20);
 			}
 			Font.draw(screen, "-Space-", TowerComponent.WIDTH / 2 - Font.getStringWidth("-Space-") / 2, 360);
+		}
+		
+		if(usingRod) {
+			for(int i = 0; i < 12; i++) {
+				for(int j = 0; j < 13; j++) {
+					screen.render(Art.sprites[3][1], i * Tile.SIZE + Level.X_OFFSET, j * Tile.SIZE + Level.Y_OFFSET);
+				}
+			}
+			Font.draw(screen, "Ability Rod - " + cpage + " of " + cpage_max, TowerComponent.WIDTH / 2 - Font.getStringWidth("Ability Rod") / 2, 10);
+			Font.draw(screen, "(ESC) to exit", TowerComponent.WIDTH / 2 - Font.getStringWidth("(ESC) to exit") / 2, TowerComponent.HEIGHT - 25);
+			int cw = 0;
+			for(int i = cpage * 5; (cpage * 5 + 5 >= entities.size() - 1) ? i < entities.size() : i < cpage * 5 + 5; i++) {
+//				System.out.println("getting " + i);
+				Entity e = entities.get(i);
+				e.render(screen, Level.X_OFFSET + 20, Level.Y_OFFSET + 20 + i * 84 - (cpage * 5 * 84));
+				Font.draw(screen, e.name, Level.X_OFFSET + 20, Level.Y_OFFSET + 55 + i * 84 - (cpage * 5 * 84));
+				Font.draw(screen, "HP:" + e.hp + " DEF:" + e.defense + " DMG:" + ((Combat.calculateDamage(player, e) != -1) ? Combat.calculateDamage(player, e) : "999999"),Level.X_OFFSET + 60, Level.Y_OFFSET + 15 + i * 84 - (cpage * 5 * 84));
+				Font.draw(screen, "ATK:" + e.attack + " GLD/EXP:" + e.gold + "/" + e.exp,Level.X_OFFSET + 60, Level.Y_OFFSET + 35 + i * 84 - (cpage * 5 * 84));
+				cw++;
+				if(cw >= 5) {
+					cw = 0;
+					break;
+				}
+			}
 		}
 	}
 	
@@ -259,7 +288,39 @@ public class UI {
 				}
 			}
 		}
+		
+		if(usingRod) {
+			if(input.escape.down) {
+				usingRod = false;
+				player.canmove = true;
+			}
+			if(input.left.down) {
+				if(System.currentTimeMillis() - pagetoggle > pageint) {
+					if(cpage > 0) cpage--;
+					pagetoggle += pageint;
+				}
+			} else if(input.right.down) {
+				if(System.currentTimeMillis() - pagetoggle > pageint) {
+					if(cpage < cpage_max) {
+						cpage++;
+					}
+					pagetoggle += pageint;
+				}
+			} else {
+				if(System.currentTimeMillis() - pagetoggle > pageint) {
+					pagetoggle += pageint;
+				}
+			}
+		} else {
+			if(System.currentTimeMillis() - pagetoggle > pageint) {
+				pagetoggle += pageint;
+			}
+		}
 	}
+	
+	static int pageint = 500;
+	static long pagetoggle = System.currentTimeMillis();
+	
 	
 	static short hit = -1;
 	static boolean hascombat = false, won = false;
@@ -302,5 +363,44 @@ public class UI {
 		UI.player = p;
 		hasdialog = true;
 		p.canmove = false;
+	}
+	
+	static Level level;
+	public static boolean usingRod = false;
+	
+	static int cpage = 0, cpage_max = 0;
+	
+	static List<Entity> entities;
+	
+	public static void useRod(Player player, Level level) {
+		UI.player = player;
+		UI.level = level;
+		usingRod = true;
+		player.canmove = false;
+		cpage = 0;
+		List<Entity> allents = level.getEntities();
+		List<Entity> hostile = new ArrayList<Entity>();
+		List<String> checked = new ArrayList<String>();
+		entities = new ArrayList<Entity>();
+		for(int i = 0; i < allents.size(); i++) {
+			if(allents.get(i).hostile) hostile.add(allents.get(i));
+		}
+		outer:
+		for(int i = 0; i < hostile.size(); i++) {
+			if(i == 0) {
+				entities.add(hostile.get(i));
+				checked.add(hostile.get(i).name);
+				continue;
+			}
+			for(int j = 0; j < checked.size(); j++) {
+				if(hostile.get(i).name.equals(checked.get(j))) {
+					
+					continue outer;
+				}
+			}
+			entities.add(hostile.get(i));
+			checked.add(hostile.get(i).name);
+		}
+		cpage_max = entities.size() / 5;
 	}
 }

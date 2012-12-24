@@ -9,15 +9,16 @@
 	</define>
 	<level floor="1">
 		<entity type="StairsUp" x="5" y="4" tx="5" ty="5" />
-		
+		<entity type="Door" color="2" x="6" y="5" />
 		<item type="MasterKey" x="6" y="7" />
-		
-		<entity type="GreenSlime" x="6" y="5" />
+		<entity type="Door" color="10" x="4" y="11" />
+		<entity type="StairsDown" x="3" y="11" tx="2" ty="11" />
+<!-- 		<entity type="NPC" sprite="0" title="Demo NPC" oninteract="Thanks for playing, but this#is the end of the trial!" remove="0" x="3" y="11" /> -->
+		<entity type="Door" color="9" x="3" y="11" />
 		<entity type="Door" color="8" require="5,7" x="6" y="6" />
 		<entity type="Door" color="4" x="5" y="10" />
 		<entity type="Door" color="4" x="6" y="10" />
 		<entity type="NPC" sprite="3" title="Fairy" oninteract="Are you one of those warriors#here to save the princess?#Many went up but never came#back.##I'm giving you my last set#of keys and I wish you good#luck. Sword and Shield is at#upstairs.##I'll unlock this door for you#see you later!" remove="1"  x="5" y="7" />
-																
 		<entity type="Player" x="5" y="12" />
 	</level>
 	
@@ -45,6 +46,9 @@
 		<item type="AttackGem" x="7" y="2" />
 		<item type="YellowKey" x="5" y="11" />
 		<item type="YellowKey" x="6" y="12" />
+		
+		<entity type="NPC" sprite="0" title="Mysterious Old Man" oninteract="The tower is rumoured to have#over 20 floors, but I can#only see 20 floors... weird!" x="6" y="5" remove="0" />
+		
 		<entity type="WarriorSkeleton" x="4" y="0" />
 		
 		<entity type="WarriorSkeleton" x="4" y="2" />
@@ -86,30 +90,62 @@
 		<entity type="StairsUp" x="2" y="0" tx="3" ty="0" />
 		<entity type="StairsDown" x="11" y="9" tx="10" ty="9" />
 		
-		<entity type="Door" color="3" x="9" y="8" />
-		<entity type="Door" color="3" x="9" y="10" />
-		<entity type="Door" color="8" require="3,10-5,10" x="4" y="11" />
-		<entity type="Door" color="2" x="5" y="8" />
-		<entity type="Door" color="4" x="7" y="1" />
-		<entity type="Door" color="3" x="1" y="1" />
+		<entity type="Door" color="8" require="0,1" x="7" y="8" />
+		<entity type="Door" color="3" x="10" y="10" />
+		<entity type="Door" color="2" x="0" y="10" />
+		<entity type="Door" color="2" x="0" y="9" />
+		<entity type="Door" color="4" x="8" y="12" />
+		<entity type="Door" color="4" x="5" y="11" />
+		<entity type="Door" color="4" x="3" y="12" />
+		<entity type="Door" color="8" require="6,7-8,7" x="7" y="6" />
+		<entity type="Door" color="8" require="6,5-8,5" x="7" y="4" />		
+		<entity type="Door" color="8" require="6,2-7,2-8,2-6,3-7,3-8,3" x="7" y="1" />
 		
-		<entity type="CaptainKnight" x="5" y="7" />
-		<entity type="CaptainKnight" x="5" y="0" />
-		<entity type="CaptainKnight" x="0" y="1" />
-		<entity type="BlazingKnight" x="8" y="1" />
-		<entity type="BlazingKnight" x="4" y="12" />
-		<entity type="SoulKnight" x="0" y="4" />
-		<entity type="SapphireGolem" x="3" y="10" />
-		<entity type="SapphireGolem" x="5" y="10" />
+		<entity type="SoulKnight" x="0" y="1" />
+		<entity type="SoulKnight" x="6" y="7" />
+		<entity type="SoulKnight" x="8" y="7" />
 		
+		<entity type="GemGolem" x="10" y="11" />
+		<entity type="GemGolem" x="9" y="12" />
+		<entity type="SapphireGolem" x="7" y="12" />
+		<entity type="SapphireGolem" x="6" y="11" />
+		<entity type="SapphireGolem" x="2" y="12" />
+		<entity type="SapphireGolem" x="1" y="11" />
+		<entity type="LeaderSkeleton" x="4" y="11" />
+		<entity type="LeaderSkeleton" x="0" y="8" />
+		<entity type="SoulSkeleton" x="0" y="6" />
+		<entity type="Knight" x="0" y="4" />
+		<entity type="CaptainKnight" x="0" y="3" />
+		<entity type="BlazingKnight" x="0" y="2" />
+		<entity type="SoulMage" x="6" y="5" />
+		<entity type="SoulMage" x="8" y="5" />
+		<entity type="DuelWielder" x="8" y="3" />
+		<entity type="DuelWielder" x="6" y="3" />
+		<entity type="RubyGolem" x="7" y="3" />
+		<entity type="SoulMage" x="7" y="2" />
+		<entity type="SoulKnight" x="6" y="2" />
+		<entity type="SoulKnight" x="8" y="2" />
+		
+		<item type="SoulKey" x="7" y="0" />
+		<item type="GreatAttackGem" x="9" y="11" />
+		<item type="RestorationPotion" x="0" y="7" />
+		<item type="GreatDefenseGem" x="10" y="12" />
+		<item type="DivinePotion" x="7" y="11" />
+		<item type="BlueKey" x="6" y="12" />
+		<item type="RedKey" x="0" y="11" />
+		<item type="HealthPotion" x="2" y="11" />
+		<item type="YellowKey" x="1" y="12" />
 		<item type="YellowKey" x="2" y="6" />
 		<item type="YellowKey" x="2" y="5" />
+		<item type="RedKey" x="4" y="12" />
 		<item type="HealthPotion" x="2" y="4" />
 	</level>
 	
 	<level floor="4">
 		<entity type="StairsDown" x="2" y="0" tx="2" ty="1" />
 		<entity type="StairsUp" x="0" y="12" tx="0" ty="11" />
+		
+		<entity type="NPC" sprite="3" title="Fairy" oninteract="We meet again! I must get my#power back. If you happen to#see a cross with a red gem#in it, please return it to#me!##Remember: Don't kill monsters#that are unecessary to kill!" remove="1"  x="2" y="1" />
 		
 		<entity type="Door" color="0" x="2" y="2" />
 		<entity type="Door" color="0" x="0" y="2" />
@@ -198,6 +234,10 @@
 		<entity type="Door" color="0" x="1" y="2" />
 		
 		<item type="GreenKey" x="9" y="0" />
+		<item type="RestorationPotion" x="0" y="0" />
+		<item type="HealthPotion" x="1" y="0" />
+		<item type="HealthPotion" x="9" y="4" />
+		<item type="HealthPotion" x="11" y="6" />
 		
 		<entity type="Skeleton" x="1" y="10" />
 		<entity type="BlackSlime" x="2" y="7" />
@@ -217,9 +257,9 @@
 		<entity type="LargeBat" x="7" y="2" />
 		<entity type="WarriorSkeleton" x="3" y="1" />
 		<entity type="LargeBat" x="10" y="9" />
-		<entity type="NPC" sprite="1" title="Mysterious Woman" oninteract="Use red keys and green keys#wisely. There are various#doors requiring them, but often#only one is the right solution.##The key seller died a while#ago, so you can't buy more#keys..." remove="1"  x="9" y="1" />
-<!-- 		<entity type="NPC" sprite="2" title="Annoying Dude" oninteract="you shall not pass!..." remove="0"  x="0" y="7" /> -->
+		<entity type="NPC" sprite="1" title="Cunning Woman" oninteract="Use red keys and green keys#wisely. There are various#doors requiring them, but often#only one is the right solution.##The key seller died a while#ago, so you can't buy more#keys..." remove="1"  x="9" y="1" />
 		
+		<item type="RedKey" x="9" y="2" />
 		<item type="RedKey" x="10" y="1" />
 		<item type="HealthPotion" x="11" y="2" />
 		<item type="HealthPotion" x="11" y="0" />
@@ -245,8 +285,8 @@
 		<item type="AttackGem" x="5" y="12" />
 		<item type="DefenseGem" x="7" y="12" />
 		
-		<entity type="NPC" sprite="0" title="Encaged Old Man" oninteract="Oh,you saved me!#Take this as my thanks to you!##You can see monster's stats#with it.###Good luck!" remove="1"  x="10" y="5" />
-		<item type="Monsterdex" x="10" y="5" />
+		<entity type="NPC" sprite="0" title="Encaged Old Man" oninteract="Oh,you saved me!#Take this as my thanks to you!##You can see monster's stats#with it.##Press 'L' to use it##Good luck!" remove="1"  x="10" y="4" />
+		<item type="Rod" x="10" y="5" />
 	</level>
 	
 	<level floor="6">
@@ -263,10 +303,25 @@
 		<item type="HealthPotion" x="8" y="6" />
 		<item type="RestorationPotion" x="9" y="0" />
 		<item type="HealthPotion" x="8" y="0" />
+		<item type="RestorationPotion" x="8" y="8" />
+		<item type="DefenseGem" x="8" y="9" />
+		<item type="SilverShield" x="11" y="5" />
+		<item type="SilverSword" x="0" y="10" />
+		<item type="BlueKey" x="6" y="9" />
+		<item type="AttackGem" x="5" y="11" />
+		<item type="RestorationPotion" x="4" y="4" />
+		<item type="RestorationPotion" x="4" y="2" />
+		<item type="HealthPotion" x="4" y="1" />
+		<item type="HealthPotion" x="0" y="6" />
+		<item type="HealthPotion" x="0" y="5" />
 		
+		<entity type="Door" color="1" x="7" y="11" />
+		<entity type="Door" color="1" x="7" y="10" />
 		<entity type="Door" color="4" x="5" y="7" />
+		<entity type="Door" color="4" x="2" y="11" />
 		<entity type="Door" color="2" x="1" y="4" />
 		<entity type="Door" color="0" x="1" y="2" />
+		<entity type="Door" color="0" x="4" y="10" />
 		<entity type="Door" color="8" require="9,2-9,4" x="10" y="3" />
 		<entity type="Door" color="1" x="5" y="3" />
 		<entity type="Door" color="2" x="10" y="9" />
@@ -275,13 +330,25 @@
 		<entity type="Door" color="0" x="2" y="6" />
 		<entity type="Door" color="4" x="11" y="6" />
 		
+<!-- 		<item type="RustyKey" x="11" y="3" /> -->
+		<item type="IceTincture" x="11" y="3" />
+		<entity type="NPC" sprite="2" title="Jack the Thief" oninteract="Alot of us are imprisoned here.#But now you've saved me, so#take this as my thanks to you.#I'll go sniffing around some#underground floors. The soul#levels are damn crazy, it#won't be a wise move going there.##See ya!" x="11" y="3" remove="1" />
+		
+		<entity type="BloodBat" x="4" y="11" />
+		<entity type="BloodBat" x="3" y="11" />
+		<entity type="LeaderSkeleton" x="1" y="11" />
+		<entity type="CaptainKnight" x="7" y="12" />
+		<entity type="Knight" x="8" y="12" />
+		<entity type="Necromancer" x="4" y="9" />
 		<entity type="UndeadWarrior" x="10" y="8" />
 		<entity type="UndeadWarrior" x="7" y="9" />
 		<entity type="SapphireGolem" x="11" y="8" />
+		<entity type="SapphireGolem" x="11" y="7" />
 		<entity type="RockConstruct" x="11" y="0" />
 		<entity type="Knight" x="4" y="7" />
-		<entity type="Knight" x="9" y="2" />
-		<entity type="Knight" x="9" y="4" />
+		<entity type="Knight" x="9" y="3" />
+		<entity type="CaptainKnight" x="9" y="2" />
+		<entity type="CaptainKnight" x="9" y="4" />
 		<entity type="RockConstruct" x="4" y="5" />
 		<entity type="LargeBat" x="7" y="2" />
 		<entity type="LargeBat" x="7" y="4" />
@@ -304,6 +371,72 @@
 		<entity type="StairsUp" x="6" y="12" tx="6" ty="11" />
 		<entity type="StairsUp" x="11" y="4" tx="10" ty="4" />
 		<entity type="StairsUp" x="0" y="5" tx="0" ty="4" />
+		
+		<entity type="Door" color="8" x="5" y="1" require="0,9-0,10-1,10-2,10-2,9" />
+		<entity type="Door" color="2" x="9" y="4" />
+		<entity type="Door" color="0" x="6" y="2" />
+		<entity type="Door" color="2" x="1" y="11" />
+		<entity type="Door" color="1" x="5" y="11" />
+		<entity type="Door" color="0" x="7" y="7" />
+		<entity type="Door" color="4" x="9" y="8" />
+		<entity type="Door" color="4" x="2" y="6" />
+		<entity type="Door" color="4" x="8" y="1" />
+		
+		<item type="HealthPotion" x="9" y="0" />
+		<item type="HealthPotion" x="9" y="1" />
+		<item type="RedKey" x="1" y="2" />
+		<item type="MasterKey" x="1" y="1" />
+		<item type="HolyPotion" x="1" y="3" />
+		<item type="RestorationPotion" x="8" y="3" />
+		<item type="RestorationPotion" x="8" y="5" />
+		<item type="AttackGem" x="11"  y="3" />
+		<item type="GreatAttackGem" x="3" y="5" />
+		<item type="GreatDefenseGem" x="3" y="6" />
+		<item type="DefenseGem" x="11" y="5" />
+		<item type="YellowKey" x="10" y="3" />
+		<item type="HealthPotion" x="10" y="5" />
+		<item type="SmallWing" x="6" y="5" />
+		<item type="BlueKey" x="7" y="4" />
+		<item type="DefenseGem" x="0" y="12" />
+		<item type="HealthPotion" x="5" y="9" />
+		<item type="HealthPotion"  x="11" y="7" />
+		<item type="RedKey" x="10" y="7" />
+		<item type="YellowKey" x="11" y="8" />
+		<item type="Wing" x="9" y="11" />
+		<item type="BlueKey" x="9" y="12" />
+		
+		<entity type="RockConstruct" x="3" y="12" />
+		<entity type="LeaderSkeleton" x="10" y="12" />
+		<entity type="KingSlime" x="8" y="11" />
+		<entity type="GemGolem" x="4" y="11" />
+		<entity type="GemGolem" x="6" y="8" />
+		<entity type="RockConstruct" x="4" y="9" />
+		<entity type="RockConstruct" x="6" y="9" />
+		<entity type="BloodBat" x="8" y="8" />
+		<entity type="KingSlime" x="10" y="8" />
+		<entity type="UndeadWarrior" x="11" y="9" />
+		<entity type="Knight" x="1" y="12" />
+		<entity type="BlazingKnight" x="1" y="9" />
+		<entity type="CaptainKnight" x="0" y="9" />
+		<entity type="CaptainKnight" x="0" y="10" />
+		<entity type="CaptainKnight" x="2" y="9" />
+		<entity type="CaptainKnight" x="2" y="10" />
+		<entity type="Knight" x="1" y="10" />
+		<entity type="RockConstruct" x="7" y="5" />
+		<entity type="RockConstruct" x="10" y="4" />
+		<entity type="SapphireGolem" x="1" y="6" />
+		<entity type="GemGolem" x="6" y="1" />
+		<entity type="KingSlime" x="6" y="3" />
+		<entity type="KingSlime" x="7" y="1" />
+		<entity type="CaptainKnight" x="3" y="4" />
+		<entity type="BlazingKnight" x="2" y="4" />
+		<entity type="CaptainKnight" x="2" y="3" />
+		<entity type="SapphireGolem" x="0" y="6" />
+		<entity type="MysticWizard" x="8" y="4" />
+		<entity type="Necromancer" x="3" y="1" />
+		<entity type="UndeadWarrior" x="4" y="0" />
+		<entity type="UndeadWarrior" x="4" y="2" />
+		
 	</level>
 	
 	<level floor="8">
@@ -311,15 +444,354 @@
 		<entity type="StairsDown" x="0" y="5" tx="0" ty="6" />
 		<entity type="StairsDown" x="6" y="12" tx="6" ty="11" />
 		<entity type="StairsUp" x="2" y="9" tx="2" ty="8" />
+		
+		<entity type="Door" color="4" x="9" y="3" />
+		<entity type="Door" color="0" x="11" y="1" />
+		<entity type="Door" color="2" x="6" y="5" />
+		<entity type="Door" color="4" x="1" y="0" />
+		<entity type="Door" color="7" x="1" y="7" />
+		<entity type="Door" color="0" x="6" y="9" />
+		<entity type="Door" color="8" require="5,3" x="5" y="9" />
+		<entity type="Door" color="0" x="8" y="7" />
+		<entity type="Door" color="8" require="3,5" x="5" y="4" />
+		<entity type="Door" color="3" x="3" y="5" />
+		<entity type="Door" color="1" x="0" y="10" />
+		<entity type="Door" color="1" x="2" y="12" />
+		<entity type="Door" color="0" x="5" y="11" />
+		<entity type="Door" color="4" x="8" y="11" />
+		<entity type="Door" color="8" require="11,12" x="10" y="9" />
+		
+		<item type="AttackGem" x="5" y="7" />
+		<item type="HealthPotion" x="11" y="6" />
+		<item type="HealthPotion" x="11" y="7" />
+		<item type="YellowKey" x="7" y="5" />
+		<item type="BlueKey" x="7" y="8" />
+		<item type="BlueKey" x="10" y="7" />
+		<item type="HealthPotion" x="7" y="1" />
+		<item type="DefenseGem" x="10" y="6" />
+		<item type="RedKey" x="9" y="2" />
+		<item type="DivineBlessBottle" x="0" y="0" />
+		<item type="BlueKey" x="0" y="9" />
+		<item type="YellowKey" x="3" y="11" />
+		<item type="RestorationPotion" x="4" y="12" />
+		<item type="BlueKey" x="10" y="12" />
+		<item type="BigWing" x="5" y="1" />
+		
+		<entity type="NPC" sprite="3" title="Fairy" oninteract="Thank you hero!#I was trying to get the cross#but I was caught by monsters.#I have more tips, though#'Looks like this tower is#split into 3 parts! Each part#is locked and must be unlocked#with a key'##Now you freed me, I'll#sniff around a bit more!" remove="1"  x="5" y="3" />
+		<entity type="NPC" sprite="1" title="Cunning Merchant" oninteract="Mechanical doors require you#to defeat certain enemies on#certain places to open them.#Sometimes they require you to#open a specific door or interact#with a specific person.##It's confusing..." remove="0" x="9" y="6" />
+		
+		<entity type="BloodBat" x="9" y="11" />
+		<entity type="Knight" x="9" y="9" />
+		<entity type="CaptainKnight" x="11" y="12" />
+		<entity type="SoulKnight" x="2" y="0" />
+		<entity type="LeaderSkeleton" x="3" y="12" />
+		<entity type="Knight" x="4" y="11" />
+		<entity type="CaptainKnight" x="0" y="7" />
+		<entity type="BlazingKnight" x="1" y="11" />
+		<entity type="Knight" x="0" y="11" />
+		<entity type="Knight" x="1" y="12" />
+		<entity type="UndeadWarrior" x="5" y="5" />
+		<entity type="KingSlime" x="4" y="5" />
+		<entity type="KingSlime" x="9" y="7" />
+		<entity type="KingSlime" x="7" y="11" />
+		<entity type="KingSlime" x="7" y="9" />
+		<entity type="LargeBat" x="7" y="6" />
+		<entity type="LargeBat" x="7" y="7" />
+		<entity type="BloodBat" x="7" y="4" />
+		<entity type="Knight" x="7" y="3" />
+		<entity type="VoidWalker" x="4" y="8" />
+		<entity type="CaptainKnight" x="0" y="3" />
+		<entity type="SapphireGolem" x="0" y="2" />
+		<entity type="SapphireGolem" x="1" y="2" />
+		<entity type="RubyGolem" x="4" y="1" />
+		<entity type="LargeBat" x="10" y="0" />
+		<entity type="BloodBat" x="9" y="0" />
+		<entity type="LargeBat" x="8" y="0" />
+		<entity type="RockConstruct" x="2" y="8" />
+		<entity type="RockConstruct" x="2" y="7" />
+		<entity type="RockConstruct" x="3" y="7" />
+		
+		<item type="RestorationPotion" x="10" y="2" />
+		
+		<entity type="KingSlime" x="9" y="4" />
+		
 	</level>
 	
 	<level floor="9">
 		<entity type="StairsDown" x="2" y="9" tx="2" ty="8" />
 		<entity type="StairsUp" x="11" y="5" tx="10" ty="5" />
 		<entity type="Door" color="7" x="11" y="5" />
+		
+		<entity type="NPC" sprite="3" title="Fairy" oninteract="Damn,I couldn't find the way#up. Hmm, I heard that there#might be hidden walls all#over these floors. Maybe the#stairs up is lurking within?" remove="1" x="2" y="7" />
+		<entity type="BloodBat" x="4" y="4" />
+		<entity type="BloodBat" x="6" y="4" />
+		<entity type="BloodBat" x="4" y="6" />
+		<entity type="BloodBat" x="6" y="6" />
+		<entity type="CaptainKnight" x="6" y="5" />
+		<entity type="Knight" x="4" y="2" />
+		<entity type="Knight" x="6" y="2" />
+		<entity type="Knight" x="4" y="0" />
+		<entity type="Knight" x="6" y="0" />
+		<entity type="VoidWalker" x="5" y="6" />
+		<entity type="VoidWalker" x="5" y="4" />
+		<entity type="UndeadWarrior" x="4" y="5" />
+		<entity type="CaptainKnight" x="7" y="11" />
+		<entity type="VoidWalker" x="8" y="11" />
+		<entity type="BloodBat" x="10" y="11" />
+		<entity type="Knight" x="2" y="5" />
+		<entity type="UndeadWarrior" x="0" y="5" />
+		<entity type="VoidWalker" x="1" y="3" />
+		<entity type="KingSlime" x="1" y="1" />
+		<entity type="KingSlime" x="2" y="0" />
+		<entity type="KingSlime" x="0" y="0" />
+		<entity type="Necromancer" x="8" y="1" />
+		<entity type="Necromancer" x="10" y="0" />
+		<entity type="Necromancer" x="11" y="1" />
+		<entity type="UndeadCorruptor" x="11" y="11" />
+		<entity type="UndeadCorruptor" x="10" y="12" />
+		<entity type="KingSlime" x="5" y="8" />
+		<entity type="LeaderSkeleton" x="10" y="9" />
+		<entity type="LeaderSkeleton" x="4" y="11" />
+		<entity type="BloodBat" x="3" y="12" />
+		<entity type="BloodBat" x="2" y="12" />
+		<entity type="BloodBat" x="1" y="12" />
+		<entity type="VoidWalker" x="8" y="4" />
+		<entity type="VoidWalker" x="8" y="3" />
+		<entity type="VoidWalker" x="9" y="3" />
+		<entity type="VoidWalker" x="10" y="3" />
+		<entity type="VoidWalker" x="10" y="4" />
+		<entity type="Knight" x="8" y="6" />
+		<entity type="Knight" x="10" y="6" />
+		<entity type="CaptainKnight" x="9" y="7" />
+		<entity type="Necromancer" x="10" y="5" />
+		
+		<item type="GoldCoin" x="11" y="12" />
+		<item type="GoldCoin" x="11" y="0" />
+		<item type="GoldCoin" x="1" y="0" />
+		<item type="GoldCoin" x="0" y="10" />
+		<item type="HealthPotion" x="8" y="9" />
+		<item type="HealthPotion" x="9" y="9" />
+		<item type="AttackGem" x="0" y="1" />
+		<item type="DefenseGem" x="2" y="1" />
+		<item type="BlueKey" x="0" y="3" />
+		<item type="DefenseGem" x="2" y="3" />
+		<item type="YellowKey" x="4" y="1" />
+		<item type="YellowKey" x="6" y="1" />
+		<item type="YellowKey" x="5" y="0" />
+		<item type="YellowKey" x="5" y="2" />
+		<item type="BlueKey" x="0" y="6" />
+		<item type="RedKey" x="1" y="8" />
+		<item type="YellowKey" x="3" y="8" />
+		<item type="HealthPotion" x="5" y="5" />
+		<item type="RestorationPotion" x="0" y="8" />
+		<item type="GreatDefenseGem" x="6" y="12" />
+		<item type="HealthPotion" x="7" y="12" />
+		<item type="YellowKey" x="8" y="12" />
+		<item type="RestorationPotion" x="2" y="11" />
+		<item type="YellowKey" x="6" y="8" />
+		<item type="AttackGem" x="11" y="9" />
+		<item type="DefenseGem" x="0" y="12" />
+		
+		<entity type="Door" color="4" x="0" y="11" />
+		<entity type="Door" color="4" x="9" y="1" />
+		<entity type="Door" color="4" x="1" y="2" />
+		<entity type="Door" color="2" x="2" y="6" />
+		<entity type="Door" color="1" x="7" y="0" />
+		<entity type="Door" color="1" x="7" y="10" />
+		<entity type="Door" color="0" x="5" y="3" />
+		<entity type="Door" color="0" x="10" y="10" />
+		<entity type="Door" color="0" x="9" y="11" />
+		<entity type="Door" color="0" x="3" y="5" />
+		<entity type="Door" color="1" x="1" y="4" />
+		<entity type="Door" color="0" x="3" y="1" />
+		<entity type="Door" color="0" x="5" y="7" />
+<!-- 		<entity type="Door" color="8" require="6,6-6,4-4,4-4,6-0,0-11,0-0,10-11,12" x="7" y="5" /> -->
 	</level>
 	
 	<level floor="10">
 		<entity type="StairsDown" x="11" y="5" tx="10" ty="5" />
+		<entity type="StairsUp" x="1" y="5" tx="2" ty="5" />
+		
+		<entity type="Archdemon" x="7" y="5" />
+		<entity type="SpiritSiphonGuard" x="4" y="4" />
+		<entity type="SpiritSiphonGuard" x="4" y="6" />
+		<entity type="BlazingKnight" x="8" y="5" />
+		<entity type="ChaosMage" x="8" y="6" />
+		<entity type="Necromancer" x="8" y="4" />
+		
+		<item type="HolyPotion" x="10" y="6" />
+		<item type="RustyKey" x="8" y="3" />
+		<item type="Cross" x="8" y="7" />
+		
+		<entity type="UnderworldGuard" x="6" y="4" />
+		<entity type="UnderworldGuard" x="7" y="4" />
+		<entity type="UnderworldGuard" x="6" y="5" />
+		<entity type="UnderworldGuard" x="6" y="6" />
+		<entity type="UnderworldGuard" x="6" y="6" />
+		<entity type="UnderworldGuard" x="7" y="6" />
+		
+		<entity type="NPC" sprite="3" title="Fairy" oninteract="You made it! Well,looks#like this is the end of#the common section of the to-#wer. The floors above is called#'Soul Level' because it#is filled with the best#guards in the tower.##You'll need to be much stron-#ger to fight them. Take the#key and go all the way#down! My cross can wait." remove="1" x="10" y="4" />
+		
+		<entity type="Door" color="2" x="9" y="5" />
+		<entity type="Door" color="8" require="4,4-4,6" x="2" y="5" />
+		<entity type="Door" color="8" require="7,5" x="5" y="5" />
+	</level>
+	
+	<level floor="11">
+		<entity type="StairsDown" x="1" y="5" tx="2" ty="5" />
+		<entity type="StairsUp" x="2" y="0" tx="1" ty="0" />
+	</level>
+	
+	<level floor="12">
+		<entity type="StairsDown" x="2" y="0" tx="1" ty="0" />
+		<entity type="StairsUp" x="11" y="2" tx="11" ty="3" />
+		<entity type="StairsUp" x="8" y="12" tx="9" ty="7" />
+	</level>
+	
+	<level floor="13">
+		<entity type="StairsDown" x="11" y="2" tx="11" ty="3" />
+		<entity type="StairsDown" x="8" y="7" tx="8" ty="6" />
+		<entity type="StairsUp" x="8" y="9" tx="8" ty="10" />
+	</level>
+	
+	<level floor="14">
+		<entity type="StairsDown" x="8" y="9" tx="9" ty="9" />
+		<entity type="StairsUp" x="4" y="3" tx="4" ty="4" />	
+	</level>
+	
+	<level floor="15">
+		<entity type="StairsDown" x="4" y="3" tx="4" ty="2" />
+		<entity type="StairsUp" x="4" y="9" tx="4" ty="8" />	
+	</level>
+	
+	<level floor="16">
+		<entity type="StairsDown" x="4" y="9" tx="4" ty="8" />
+		<entity type="StairsUp" x="2" y="1" tx="2" ty="2" />
+	</level>
+	
+	<level floor="17">
+		<entity type="StairsDown" x="2" y="1" tx="1" ty="1" />
+		<entity type="StairsUp" x="8" y="12" tx="8" ty="11" />
+	</level>
+	
+	<level floor="18">
+		<entity type="StairsDown" x="8" y="12" tx="8" ty="11" />
+		<entity type="StairsUp" x="2" y="12" tx="2" ty="11" />
+	</level>
+	
+	<level floor="19">
+		<entity type="StairsDown" x="2" y="12" tx="2" ty="11" />
+		<entity type="StairsUp" x="6" y="6" tx="6" ty="5" />
+	</level>
+	
+	<level floor="20">
+		<entity type="StairsDown" x="6" y="6" tx="7" ty="6" />
+	</level>
+	
+<!-- 	B1F and onwards -->
+	<level floor="22">
+		<entity type="StairsUp" x="3" y="11" tx="4" ty="11" />
+		<entity type="StairsDown" x="8" y="1" tx="8" ty="2" />
+		
+		<entity type="Door" x="3" y="6" color="2" />
+		<entity type="Door" x="8" y="6" color="1" />
+		<entity type="NPC" sprite="3" title="Fairy" x="4" y="6" oninteract="You made it! So here's the#underground section of the tow#er.These are old monsters who#used to be in the soul levels.#But I guess eventually the#Deathmaster found stronger#ones to replace them.##They are still very strong,#be careful!#I heard the princess is kept#on the bottomost floor!" remove="1" />
+		
+		<item type="RedKey" x="4" y="5" />
+		<item type="RedKey" x="4" y="7" />
+		<item type="BlueKey" x="5" y="5" />
+		<item type="BlueKey" x="6" y="5" />
+		<item type="YellowKey" x="7" y="5" />
+		<item type="YellowKey" x="5" y="7" />
+		<item type="YellowKey" x="6" y="7" />
+		<item type="YellowKey" x="7" y="7" />
+		<item type="GreatAttackGem" x="4" y="4" />
+		<item type="GreatAttackGem" x="5" y="4" />
+		<item type="GreatDefenseGem" x="6" y="4" />
+		<item type="GreatDefenseGem" x="7" y="4" />
+		<item type="HolyPotion" x="4" y="8" />
+		<item type="HolyPotion" x="5" y="8" />
+		<item type="HolyPotion" x="6" y="8" />
+		<item type="DivinePotion" x="7" y="8" />
+	</level>
+	
+	<level floor="23">
+		<entity type="StairsUp" x="8" y="1" tx="9" ty="1" />
+		<entity type="StairsDown" x="10" y="11" tx="10" ty="10" />
+		
+		<entity type="Door" color="1" x="9" y="3" />
+		<entity type="Door" color="0" x="6" y="4" />
+		<entity type="Door" color="0" x="1" y="7" />
+		<entity type="Door" color="0" x="9" y="0" />
+		<entity type="Door" color="0" x="3" y="11" />
+		<entity type="Door" color="1" x="8" y="12" />
+		<entity type="Door" color="3" x="2" y="3" />
+		<entity type="Door" color="8" x="9" y="10" require="8,9-10,9" /> 
+		<entity type="Door" color="8" x="4" y="1" require="1,0-2,0-3,0-1,1-2,1-3,1-1,2-2,2-3,2" />
+		<entity type="Door" color="1" x="9" y="5" />
+		<entity type="Door" color="4" x="3" y="5" />
+		
+		<item type="HolyPotion" x="5" y="3" />
+		<item type="BlueKey" x="10" y="2" />
+		<item type="RestorationPotion" x="11" y="3" />
+		<item type="RedKey" x="10" y="6" />
+		<item type="YellowKey" x="11" y="5" />
+		<item type="YellowKey" x="2" y="6" />
+		<item type="YellowKey" x="0" y="6" />
+		<item type="AttackGem" x="4" y="4" />
+		<item type="DefenseGem" x="5" y="5" />
+		<item type="HolyPotion" x="1" y="9" />
+		<item type="AttackGem" x="0" y="8" />
+		<item type="MasterKey" x="6" y="9" />
+		<item type="GreenKey" x="1" y="12" />
+		<item type="DivinePotion" x="5" y="12" />
+		
+		<entity type="GemBoulder" x="5" y="11" />
+		<entity type="GemBoulder" x="4" y="12" />
+		<entity type="VolcanicConstruct" x="8" y="9" />
+		<entity type="VolcanicConstruct" x="10" y="9" />
+		<entity type="VolcanicConstruct" x="5" y="4" />
+		<entity type="BlackSlimeGod" x="10" y="3" />
+		<entity type="BlackSlimeGod" x="11" y="2" />
+		<entity type="DarkImp" x="4" y="5" />
+		<entity type="GreenSlimeGod" x="5" y="7" />
+		<entity type="RedSlimeGod" x="6" y="7" />
+		<entity type="GreenSlimeGod" x="7" y="7" />
+		<entity type="BlackSlimeGod" x="10" y="5" />
+		<entity type="BlackSlimeGod" x="11" y="6" />
+		<entity type="RedSlimeGod" x="7" y="3" />
+		<entity type="GreenSlimeGod" x="7" y="4" />
+		<entity type="GreenSlimeGod" x="8" y="3" />
+		<entity type="GreenSlimeGod" x="2" y="5" />
+		<entity type="GreenSlimeGod" x="1" y="6" />
+		<entity type="GreenSlimeGod" x="0" y="5" />
+		<entity type="GreenSlimeGod" x="1" y="4" />
+		<entity type="RedSlimeGod" x="1" y="5" />
+		<entity type="CrystalSorcerer" x="2" y="2" />
+		<entity type="CrystalSorcerer" x="3" y="2" />
+		<entity type="CrystalSorcerer" x="1" y="2" />
+		<entity type="DeepSorcerer" x="2" y="1" />
+		<entity type="CrystalSorcerer" x="3" y="1" />
+		<entity type="CrystalSorcerer" x="1" y="1" />
+		<entity type="CrystalSorcerer" x="2" y="0" />
+		<entity type="CrystalSorcerer" x="3" y="0" />
+		<entity type="CrystalSorcerer" x="1" y="0" />
+		<entity type="CrystalSorcerer" x="7" y="11" />
+		<entity type="BlackSlimeGod" x="1" y="8" />
+		<entity type="GreenSlimeGod" x="0" y="9" />
+		<entity type="GreenSlimeGod" x="2" y="9" />
+		<entity type="DarkImp" x="2" y="4" />
+		<entity type="DarkImp" x="0" y="4" />
+		
+	</level>
+	
+	<level floor="24">
+		<entity type="StairsUp" x="10" y="11" tx="9" ty="11" />
+		<entity type="StairsDown" x="11" y="0" tx="11" ty="1" />
+	</level>
+	
+	<level floor="25">
+		<entity type="StairsUp" x="11" y="0" tx="11" ty="1" />
+		<entity type="StairsDown" x="1" y="11" tx="1" ty="10" />
 	</level>
 </levels>

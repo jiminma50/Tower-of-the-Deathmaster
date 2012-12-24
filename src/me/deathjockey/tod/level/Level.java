@@ -49,7 +49,11 @@ public class Level {
 		entities.add(entity);
 		if(entity instanceof Player) {
 			this.player = (Player) entity;
+//			entities.add(entity);
 		}
+//		if((entity instanceof Stairs)) {
+//			entities.add(entity);
+//		}
 	}
 
 	public Tile getTileAt(int i, int j) {
@@ -65,6 +69,10 @@ public class Level {
 			if(e.x == x && e.y == y && !(e instanceof Player)) return e;
 		}
 		return null;
+	}
+
+	public List<Entity> getEntities() {
+		return entities;
 	}
 
 }
